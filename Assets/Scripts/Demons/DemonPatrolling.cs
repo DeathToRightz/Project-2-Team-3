@@ -4,31 +4,26 @@ using UnityEngine;
 using UnityEngine.AI;
 public class DemonPatrolling : MonoBehaviour
 {
-    [SerializeField]
-    Camera mainCamera;
+    /*[SerializeField]
+    Camera mainCamera;*/
 
     private NavMeshAgent agent;
 
     [SerializeField]
-    List<Transform> patrolLocation = new List<Transform>();
-
-    [SerializeField]
-    //  bool startPatrolling;
-    int patrolIndex = 0;
+    List<Transform> patrolLocations = new List<Transform>();
+    bool shouldPatrol;
+    private int patrolIndex = 0;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
     }
     private void Start()
     {
-        if(agent.pathPending)
+        if(patrolLocations.Count == 0) 
         {
-            Debug.LogWarning($"{gameObject.name}, path is pending ");
+            Debug.LogWarning($"{gameObject.name}, does not have any patrol points");
         }
-        if (patrolLocation.Count >= 1)
-        {
-            Debug.LogWarning($"{gameObject.name}, needs at least 2 patrol points");
-        }
+
     }
 
     // Update is called once per frame
@@ -46,21 +41,24 @@ public class DemonPatrolling : MonoBehaviour
             }
         }*/ ///When person click on screen and hits something where the NavMeshAgent can go it will go there
 
-        StartPatrolling();    
+        if(patrolLocations.Count != 0)
+        {
+            StartPatrolling(patrolLocations);
+        }
+        
+        
     }
 
 
-    void StartPatrolling()
+    void StartPatrolling(List<Transform> incomingLocations)
     {
-       
-        if(!agent.pathPending && patrolLocation.Count >= 1)
+        if(!agent.pathPending && agent.remainingDistance < .5f)
         {
-            while(agent.remainingDistance <.05f)
-            {
-                agent.SetDestination(patrolLocation[patrolIndex].transform.position);
-            }
-            patrolIndex = (patrolIndex + 1) % patrolLocation.Count;
+            agent.destination = incomingLocations[patrolIndex].position;
+            patrolIndex = (patrolIndex + 1) % incomingLocations.Count;
         }
+       
+        
     }
     
 }
