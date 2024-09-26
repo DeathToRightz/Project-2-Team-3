@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94e5e8135a848634c812f8ed177c5862, type: 3}
   m_Name: PlayerVariables
   m_EditorClassIdentifier: 
-  snapInput: 1
-  deadZoneThreshold: 0.1
   maxSpeed: 8
+  maxSpeedOnAttachedWithPushable: 3
   acceleration: 30
   groundDeceleration: 60
-  groundedDownforce: -1.5
   rotationSpeed: 720

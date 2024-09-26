@@ -5,16 +5,12 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ScriptableStats : ScriptableObject
 {
-    [Header("INPUT")] 
-    [Tooltip("Makes all Input snap to an integer. Prevents gamepads from walking slowly.")]
-    public bool snapInput = true;
-    
-    [Tooltip("Minimum input required before input is recognized. Avoids drifting with sticky controllers"), Range(0.01f, 0.99f)]
-    public float deadZoneThreshold = 0.1f;
-
     [Header("MOVEMENT")]
     [Tooltip("The top horizontal movement speed")]
     public float maxSpeed = 14;
+    
+    [Tooltip("The top horizontal movement speed while attached with a pushable object")]
+    public float maxSpeedWithPushable = 8;
 
     [Tooltip("The player's capacity to gain horizontal speed")]
     public float acceleration = 80;
