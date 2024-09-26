@@ -35,6 +35,11 @@ public class PlayerMovement : MonoBehaviour
         _playerInput.PlayerActionMap.Enable();
     }
 
+    private void OnDisable()
+    {
+        _playerInput.PlayerActionMap.Disable();
+    }
+
     // Update is called once per frame
     void Update()
     {
