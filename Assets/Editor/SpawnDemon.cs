@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -35,29 +36,50 @@ public class SpawnDemon : EditorWindow
 
         if(spawnDemonAtCoordinates )
         {
-            spawnLocation = EditorGUILayout.Vector3Field("Input coordinates", spawnLocation);
+           spawnLocation = EditorGUILayout.Vector3Field("Input coordinates to spawn demon",spawnLocation);
         }
+        
        
 
 
         if(GUILayout.Button("Spawn Demon"))
         {
-
-            Vector3 spawn = new Vector3(0,0,0);
-            
-            GameObject newObject = Instantiate(prefabRef,spawn,Quaternion.identity);
-            newObject.name = objectName;
-           
-            if(newObject.GetComponent<DemonTest>() != null && shouldTargetPlayer)
-            {
-                newObject.GetComponent<DemonTest>().chasePlayer = true;
-            }
-            
-            
-           
-            
+            CreateDemon(objectName,prefabRef,shouldPatrol,shouldTargetPlayer,spawnDemonAtCoordinates);
+   
         }
+
+       
     }
 
-   
+    private void CreateDemon(string nameOfDemon, GameObject incomingPrefab, bool shouldPatrol,bool shouldTargetPlayer,bool spawnAtCoordinates)
+    {
+        GameObject newDemon = null;
+      
+
+        if(spawnAtCoordinates)
+        {
+           
+            newDemon = Instantiate(incomingPrefab,spawnLocation, Quaternion.identity);
+        }
+        else
+        {
+            newDemon = Instantiate(incomingPrefab, new Vector3(0,0,0), Quaternion.identity);
+        }
+        newDemon.name = nameOfDemon;
+        if(newDemon.GetComponent<DemonPatrolling>() != null)
+        {
+            if (shouldTargetPlayer)
+            {
+                newDemon.GetComponent<DemonPatrolling>().aggroTowardPlayer = true;
+            }
+            if (shouldPatrol)
+            {
+                newDemon.GetComponent<DemonPatrolling>().allowedToPatrol = true;
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Spawned Demon doesn't have the DemonPatrolling script attached to it");
+        }
+    }
 }

@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.AI;
 public class DemonPatrolling : MonoBehaviour
 {
-    /*[SerializeField]
-    Camera mainCamera;*/
-
     private NavMeshAgent agent;
 
     [SerializeField]
     List<Transform> patrolLocations = new List<Transform>();
-    bool shouldPatrol;
+   
+    public bool allowedToPatrol, aggroTowardPlayer;
+
     private int patrolIndex = 0;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -29,17 +29,7 @@ public class DemonPatrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(Input.GetMouseButtonDown(0)) 
-        {
-           Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if(Physics.Raycast(ray, out hit))
-            {
-                //agent.SetDestination(hit.point); //Smooth move to click point
-                
-                Debug.Log(hit.point);
-            }
-        }*/ ///When person click on screen and hits something where the NavMeshAgent can go it will go there
+        
 
         if(patrolLocations.Count != 0)
         {
@@ -60,5 +50,9 @@ public class DemonPatrolling : MonoBehaviour
        
         
     }
+
+
+
+    
     
 }
