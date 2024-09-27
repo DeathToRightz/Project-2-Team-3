@@ -8,20 +8,25 @@ public class DemonPatrolling : MonoBehaviour
 
     [SerializeField]
     List<Transform> patrolLocations = new List<Transform>();
-   
+
     public bool allowedToPatrol, aggroTowardPlayer;
 
     private int patrolIndex = 0;
 
+    private DemonFOV demonFOVRef;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        demonFOVRef = this.gameObject.GetComponent<DemonFOV>();
+
     }
     private void Start()
     {
-        if(patrolLocations.Count == 0) 
+
+
+        if (allowedToPatrol && patrolLocations.Count == 0)
         {
-            Debug.LogWarning($"{gameObject.name}, does not have any patrol points");
+            Debug.LogError($"{gameObject.name}, does not have any patrol points and has been set to patrol");
         }
 
     }
@@ -29,30 +34,47 @@ public class DemonPatrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
 
-        if(patrolLocations.Count != 0)
+
+        if (allowedToPatrol)
         {
+            
             StartPatrolling(patrolLocations);
         }
-        
-        
+
+
     }
 
 
     void StartPatrolling(List<Transform> incomingLocations)
     {
-        if(!agent.pathPending && agent.remainingDistance < .5f)
+        if ((!agent.pathPending && agent.remainingDistance < .5f) && !demonFOVRef.canSeePlayer)
         {
             agent.destination = incomingLocations[patrolIndex].position;
             patrolIndex = (patrolIndex + 1) % incomingLocations.Count;
         }
-       
-        
+        else
+        {
+            ChasePlayer(aggroTowardPlayer);
+        }
+    
     }
-
-
-
-    
-    
+    void ChasePlayer(bool shouldChasePlayer)
+    {
+        if (shouldChasePlayer)
+        {
+            if (demonFOVRef.canSeePlayer)
+            {
+                agent.destination = demonFOVRef.playerRef.transform.position;               
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
 }

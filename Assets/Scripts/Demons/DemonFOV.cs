@@ -11,11 +11,11 @@ public class DemonFOV : MonoBehaviour
 
     [SerializeField] LayerMask obstructionLayers, targetLayer;
 
-    private GameObject playerRef;
+    public GameObject playerRef;
 
     public bool canSeePlayer;
 
-    private Vector3 directionToTarget;
+    [SerializeField] public Vector3 directionToTarget;
 
     private float distanceToTarget;
 
@@ -55,8 +55,8 @@ public class DemonFOV : MonoBehaviour
         if (rangeChecks.Length != 0)
         {
             Transform targetTransform = rangeChecks[0].transform;
-
-             directionToTarget = (targetTransform.position - transform.position).normalized;
+          
+            directionToTarget = (targetTransform.position - transform.position).normalized;
 
             if(Vector3.Angle(transform.forward, directionToTarget) < angle / 2)
             {
