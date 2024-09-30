@@ -12,6 +12,9 @@ public class ScriptableStats : ScriptableObject
     [Tooltip("The top horizontal movement speed while attached with a pushable object")]
     public float maxSpeedWithPushable = 8;
 
+    [Tooltip("The top horizontal movement speed while inside a wind affecting area")]
+    public float maxSpeedOnWindArea = 8;
+
     [Tooltip("The player's capacity to gain horizontal speed")]
     public float acceleration = 80;
 

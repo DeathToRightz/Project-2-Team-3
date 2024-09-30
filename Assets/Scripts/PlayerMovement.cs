@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private float _currentVelocity;
     private Vector3 _moveDirection;
     private bool _grounded;
+    private bool _isAffectedByWind;
 
     public PlayerInput PlayerInput => _playerInput;
     
@@ -71,7 +72,8 @@ public class PlayerMovement : MonoBehaviour
         forward = forward.normalized;
         right = right.normalized;
 
-        _currentVelocity = Mathf.MoveTowards(_currentVelocity, _playerPushScript.IsAttached? _stats.maxSpeedWithPushable : _stats.maxSpeed, _stats.acceleration * Time.fixedDeltaTime);
+        _currentVelocity = Mathf.MoveTowards(_currentVelocity, _stats.maxSpeed, _stats.acceleration * Time.fixedDeltaTime);
+        CheckMaxSpeedModifier();
         _moveDirection = (forward * _verticalInput + right * _horizontalInput) * _currentVelocity; 
     }
 
@@ -86,11 +88,48 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _stats.rotationSpeed * Time.deltaTime);
     }
 
+    /// <summary>
+    ///Modifies and clamps maximum speed based on conditions.
+    ///</summary>
+    private void CheckMaxSpeedModifier() 
+    {
+        if (_isAffectedByWind)
+        {
+            _currentVelocity = Mathf.Clamp(_currentVelocity, 0, _stats.maxSpeedOnWindArea);
+        }
+        else if (_playerPushScript.IsAttached)
+        {
+            _currentVelocity = Mathf.Clamp(_currentVelocity, 0, _stats.maxSpeedWithPushable);
+        }
+    }
+
     void GroundCollisionCheck()
     {
         float distance = 1.1f;
         _grounded = Physics.Raycast(transform.position, Vector3.down, distance, _groundLayerMask);
     }
+
+    #region Wind Functions
+
+    /// <summary>
+    /// Use to start applying wind force.
+    /// </summary>
+    /// <param name="windForce">direction.</param>
+    public void ApplyWindForce(Vector3 windForce)
+    {
+        if (!_isAffectedByWind) _isAffectedByWind = true;
+        _rb.AddForce(windForce, ForceMode.Force);
+    }
+
+    /// <summary>
+    /// Use to stop applying wind force. Use if you are using ApplyWindForce().
+    /// </summary>
+    public void StopWindForce()
+    {
+        _isAffectedByWind = false;
+    }
+
+    #endregion
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -117,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
         string isGroundedLabel = $"is Grounded? {_grounded}";
         
         Rect label2Rect = new Rect(3 + spacing, 25 + spacing, width, 25);
-        string velocityLabel = $"Velocity: {_moveDirection}";
+        string velocityLabel = $"Velocity: {_rb.velocity}";
 
         GUI.Label(label1Rect, isGroundedLabel);
         GUI.Label(label2Rect, velocityLabel);
