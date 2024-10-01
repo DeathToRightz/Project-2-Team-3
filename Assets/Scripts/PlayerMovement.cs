@@ -93,13 +93,13 @@ public class PlayerMovement : MonoBehaviour
     ///</summary>
     private void CheckMaxSpeedModifier() 
     {
-        if (_isAffectedByWind)
-        {
-            _currentVelocity = Mathf.Clamp(_currentVelocity, 0, _stats.maxSpeedOnWindArea);
-        }
-        else if (_playerPushScript.IsAttached)
+        if (_playerPushScript.IsAttached)
         {
             _currentVelocity = Mathf.Clamp(_currentVelocity, 0, _stats.maxSpeedWithPushable);
+        }
+        else if (_isAffectedByWind)
+        {
+            _currentVelocity = Mathf.Clamp(_currentVelocity, 0, _stats.maxSpeedOnWindArea);
         }
     }
 

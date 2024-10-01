@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5435239306321132146}
   - component: {fileID: 4943838627278414213}
   - component: {fileID: -2735227399909935808}
+  - component: {fileID: 5867850414011740631}
   m_Layer: 6
   m_Name: PushableBox
   m_TagString: Untagged
@@ -184,3 +185,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58d7c996f123bd4fbe1e80f280ef233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5867850414011740631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8097898445898348835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c511ea1917025074bb183f379c588661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshes:
+  - {fileID: 919132149155446097, guid: 5e3cbc54b92537f448d8da674e44e1df, type: 3}
+  - {fileID: 919132149155446097, guid: e2f56ee738198264d8d1c7769b85d352, type: 3}
+  - {fileID: 919132149155446097, guid: 8791733a2ea830346b8f2e3d822c970b, type: 3}
+  - {fileID: 919132149155446097, guid: 32bddb8664f66e349b0d4c6c330fedd3, type: 3}
+  - {fileID: 919132149155446097, guid: a92ceab0786f0c948826e5ef8025da2f, type: 3}
+  - {fileID: 919132149155446097, guid: 55f88eb6b7b40f94986053385b49355e, type: 3}
