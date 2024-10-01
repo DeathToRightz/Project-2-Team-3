@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] List<SoundInfo> m_sounds = new List<SoundInfo>();
+    [SerializeField] List<SoundInfo> m_sounds = new List<SoundInfo>(); //
     public List<SoundInfo> Sounds { get { return m_sounds; } }
     public static SoundManager instance;
     public ObjectPool<GameObject> soundPool;
@@ -48,7 +48,7 @@ public class SoundManager : MonoBehaviour
         AudioSource source = SetupSound(sound, soundInfo);
 
         source.Play();
-        //Debug.Log("Play");
+        Debug.Log("Play");
         return sound;
     }
     AudioSource SetupSound(GameObject sound, SoundInfo soundInfo)

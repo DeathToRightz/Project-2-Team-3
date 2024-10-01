@@ -6,8 +6,8 @@ using UnityEngine.Video;
 
 public class DemonFOV : MonoBehaviour
 {
-    [SerializeField] float angle;
-    [SerializeField] float radius;
+    [SerializeField] float angle = 100;
+    [SerializeField] float radius = 10;
 
     [SerializeField] LayerMask obstructionLayers, targetLayer;
 
@@ -22,7 +22,7 @@ public class DemonFOV : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
+        playerRef = GameObject.FindGameObjectWithTag("Player") != null? playerRef = GameObject.FindGameObjectWithTag("Player"): null;
     }
 
     private void Start()
