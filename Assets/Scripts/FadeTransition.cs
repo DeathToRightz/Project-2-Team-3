@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class FadeTransition : MonoBehaviour
 {
     private Image _image;
-    
+
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         _image = GetComponent<Image>();
     }
