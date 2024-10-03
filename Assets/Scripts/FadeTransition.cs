@@ -14,26 +14,28 @@ public class FadeTransition : MonoBehaviour
         _image = GetComponent<Image>();
     }
 
-    public void FadeIn()
+    public void FadeIn(float incomingTimer) //When calling the FadeIn/FadeOut it will ask for a timer for prolong the transition
     {
-        StartCoroutine(SetAlpha(1));
+        StartCoroutine(SetAlpha(1,incomingTimer));
     }
     
-    public void FadeOut()
+    public void FadeOut(float incomingTimer)
     {
-        StartCoroutine(SetAlpha(0));
+        StartCoroutine(SetAlpha(0,incomingTimer));
     }
 
-    private IEnumerator SetAlpha(float alphaValue)
+    private IEnumerator SetAlpha(float alphaValue, float setTimer)
     {
         alphaValue = Mathf.Clamp(alphaValue ,0, 1);
         Color newColor = _image.color;
 
         while (Math.Abs(newColor.a - alphaValue) > .0001f)
         {
-            newColor.a = Mathf.MoveTowards(newColor.a, alphaValue, Time.deltaTime);
+          
+            newColor.a = Mathf.MoveTowards(newColor.a, alphaValue, Time.deltaTime / setTimer);
             _image.color = newColor;
             yield return new WaitForEndOfFrame();
+          
         }
     }
 }

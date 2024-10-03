@@ -6,15 +6,24 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] FadeTransition fadeTransitionRef;
-
+    
+    private void Awake()
+    {
+       
+    }
     private void Start()
     {
-        fadeTransitionRef.FadeOut();
+        fadeTransitionRef.FadeOut(3);
+       
     }
+
+    
     public void OnClickPlay()
     {
-        fadeTransitionRef.FadeIn();
-        SceneManager.LoadScene("Level1");
+       
+        
+        
+        StartCoroutine(DelaySceneTransitions(3, 4, "Level1"));
     }
     public void OnClickQuit()
     {
@@ -22,17 +31,26 @@ public class MenuController : MonoBehaviour
     }
     public void OnClickHelp()
     {
-        fadeTransitionRef.FadeIn();
-        SceneManager.LoadScene("HelpMenu");
+
+        StartCoroutine(DelaySceneTransitions(3, 4, "HelpMenu"));
+       
     }
     public void OnClickCredits()
     {
-        fadeTransitionRef.FadeIn();
-        SceneManager.LoadScene("CreditsMenu");
+        StartCoroutine(DelaySceneTransitions(3, 4, "CreditsMenu"));
+        
     }
     public void OnClickBack()
     {
-        fadeTransitionRef.FadeIn();
-        SceneManager.LoadScene("Main Menu");
+        StartCoroutine(DelaySceneTransitions(3, 4, "Main Menu"));
+        
+    }
+
+    private IEnumerator DelaySceneTransitions(float FadeDelay,float loadingDelay, string nameOfScene)
+    {
+        fadeTransitionRef.FadeIn(FadeDelay);
+        yield return new WaitForSeconds(loadingDelay);
+        
+        SceneManager.LoadScene(nameOfScene);
     }
 }

@@ -3,27 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Pool;
-
+using UnityEngine.SceneManagement;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] List<SoundInfo> m_sounds = new List<SoundInfo>(); //
     public List<SoundInfo> Sounds { get { return m_sounds; } }
     public static SoundManager instance;
     public ObjectPool<GameObject> soundPool;
+    
+    
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         if (instance == null)
         {
+            
             instance = this;
-            DontDestroyOnLoad(gameObject);
             soundPool = new ObjectPool<GameObject>(OnCreateSound, OnGetFromPool, OnReturnToPool, OnDestroySound);
+            //DontDestroyOnLoad(this.gameObject);
+
+
         }
-        else
+        else  
         {
-            Destroy(this);
-        }
+            Destroy(gameObject);
+        }      
+       
     }
 #nullable enable
+
+    private void Start()
+    {
+        SceneManager.activeSceneChanged += CheckForDifferentScene;
+        
+    }
     public SoundInfo? FindSoundInfoByName(string name)
     {
       
@@ -32,12 +45,16 @@ public class SoundManager : MonoBehaviour
 #nullable disable
     public GameObject PlaySound(Vector3 location, SoundInfo soundInfo)
     {
+        
         GameObject sound = soundPool.Get();
-        sound.transform.position = location;
-        AudioSource source = SetupSound(sound, soundInfo);
+       
+            sound.transform.position = location;
+            AudioSource source = SetupSound(sound, soundInfo);
 
-        source.Play();
-        Debug.Log(source.isPlaying);
+            source.Play();
+            Debug.Log(source.isPlaying);
+         
+        
         return sound;
     }
     public GameObject PlaySound(Transform transform, SoundInfo soundInfo)
@@ -205,4 +222,40 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+
+
+    private void CheckForDifferentScene(Scene currentScene, Scene newScene)
+    {
+        Debug.Log($"Currently soundPool is: {soundPool}");
+        if(soundPool == null)
+        {
+            Debug.Log("The sound pool is null");
+            soundPool.Clear();
+            return;
+        }
+
+        Debug.Log($"{soundPool.CountInactive} objects are inactive");
+        Debug.Log($"{soundPool.CountActive} objects are active");
+       
+       /*if(soundPool == null )
+        {
+            soundPool = new ObjectPool<GameObject>(OnCreateSound, OnGetFromPool, OnReturnToPool, OnDestroySound);
+            soundPool.Clear();
+            Debug.Log($"SoundPool is now : {soundPool}");
+        }*/
+        
+        
+        /*if(soundPool.CountInactive !=0)
+        {
+            soundPool.Clear();
+            Debug.Log(soundPool);
+        }*/
+        
+        /*string currentName = currentScene.name;
+        if (currentName == null)
+        {
+            currentName = "Replaced";
+        }
+        Debug.Log("Scenes " + currentName + ", " + newScene.name);*/
+    }
 }

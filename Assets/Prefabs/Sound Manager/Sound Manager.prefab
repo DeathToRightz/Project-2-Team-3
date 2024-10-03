@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1931102538225276915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 613888587905522815}
+  - component: {fileID: 8271206882303152435}
+  m_Layer: 0
+  m_Name: Sound Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &613888587905522815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931102538225276915}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.492536, y: -8.205048, z: 3.295339}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8271206882303152435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931102538225276915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8df2b66355280ee499ea83bdabb2b5f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_sounds:
+  - Name: Button1
+    AudioClip: {fileID: 8300000, guid: be63786d6939c9f4a87852b425653211, type: 3}
+    Mute: 0
+    BypassEffects: 0
+    BypassListenerEffects: 0
+    PlayOnAwake: 0
+    Loop: 0
+    _priority: 0
+    _volume: 1
+    _pitch: 1
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
+    _minDistance: 0
+    _maxDistance: 0
+  - Name: Button2
+    AudioClip: {fileID: 8300000, guid: e7573deb73001d3459560cf3dbf6b2e3, type: 3}
+    Mute: 0
+    BypassEffects: 0
+    BypassListenerEffects: 0
+    PlayOnAwake: 0
+    Loop: 0
+    _priority: 0
+    _volume: 1
+    _pitch: 1
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
+    _minDistance: 0
+    _maxDistance: 0
+  - Name: Button3
+    AudioClip: {fileID: 8300000, guid: c51fac4220646654bb76947206b3f461, type: 3}
+    Mute: 0
+    BypassEffects: 0
+    BypassListenerEffects: 0
+    PlayOnAwake: 0
+    Loop: 0
+    _priority: 0
+    _volume: 1
+    _pitch: 1
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
+    _minDistance: 0
+    _maxDistance: 0
+  - Name: Button4
+    AudioClip: {fileID: 8300000, guid: 6d9596553dfa20e41a2f9a8640f10cfc, type: 3}
+    Mute: 0
+    BypassEffects: 0
+    BypassListenerEffects: 0
+    PlayOnAwake: 0
+    Loop: 0
+    _priority: 0
+    _volume: 1
+    _pitch: 1
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
+    _minDistance: 0
+    _maxDistance: 0
+  - Name: Button5
+    AudioClip: {fileID: 8300000, guid: fedf7c956894da449a03d22ea73d0582, type: 3}
+    Mute: 0
+    BypassEffects: 0
+    BypassListenerEffects: 0
+    PlayOnAwake: 0
+    Loop: 0
+    _priority: 0
+    _volume: 1
+    _pitch: 1
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
+    _minDistance: 0
+    _maxDistance: 0
