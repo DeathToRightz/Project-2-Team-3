@@ -41,12 +41,12 @@ public class SoundManager : MonoBehaviour
     {
       
         return m_sounds.Find(sound => sound.Name == name);
-    }
+    }  //Nope
 #nullable disable
     public GameObject PlaySound(Vector3 location, SoundInfo soundInfo)
     {
         
-        GameObject sound = soundPool.Get();
+            GameObject sound = soundPool.Get();
        
             sound.transform.position = location;
             AudioSource source = SetupSound(sound, soundInfo);
@@ -105,12 +105,20 @@ public class SoundManager : MonoBehaviour
     }
     void OnGetFromPool(GameObject objectFromPool)
     {
-        objectFromPool.SetActive(true);
-    }
+        Debug.Log(objectFromPool);
+        if(objectFromPool != null)
+        {
+            objectFromPool.SetActive(true);
+            return;
+        }
+
+        objectFromPool = new GameObject("Sound",typeof(AudioSource));
+       // objectFromPool.SetActive(true);
+    } //Nope
     void OnReturnToPool(GameObject objectFromPool)
     {
         objectFromPool.SetActive(false);
-    }
+    } //Nope
     private void OnDestroySound(GameObject soundToDestroy)
     {
         Destroy(soundToDestroy.gameObject);
@@ -235,27 +243,6 @@ public class SoundManager : MonoBehaviour
         }
 
         Debug.Log($"{soundPool.CountInactive} objects are inactive");
-        Debug.Log($"{soundPool.CountActive} objects are active");
-       
-       /*if(soundPool == null )
-        {
-            soundPool = new ObjectPool<GameObject>(OnCreateSound, OnGetFromPool, OnReturnToPool, OnDestroySound);
-            soundPool.Clear();
-            Debug.Log($"SoundPool is now : {soundPool}");
-        }*/
-        
-        
-        /*if(soundPool.CountInactive !=0)
-        {
-            soundPool.Clear();
-            Debug.Log(soundPool);
-        }*/
-        
-        /*string currentName = currentScene.name;
-        if (currentName == null)
-        {
-            currentName = "Replaced";
-        }
-        Debug.Log("Scenes " + currentName + ", " + newScene.name);*/
+        Debug.Log($"{soundPool.CountActive} objects are active");    
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] FadeTransition fadeTransitionRef;
-    
+    private GameObject obj1, obj2;
     private void Awake()
     {
        
@@ -19,10 +19,7 @@ public class MenuController : MonoBehaviour
 
     
     public void OnClickPlay()
-    {
-       
-        
-        
+    {   
         StartCoroutine(DelaySceneTransitions(3, 4, "Level1"));
     }
     public void OnClickQuit()
@@ -32,6 +29,9 @@ public class MenuController : MonoBehaviour
     public void OnClickHelp()
     {
 
+        //obj1 =     SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Button1"));
+        
+        
         StartCoroutine(DelaySceneTransitions(3, 4, "HelpMenu"));
        
     }
@@ -42,6 +42,8 @@ public class MenuController : MonoBehaviour
     }
     public void OnClickBack()
     {
+       //obj2 =  SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Button2"));
+
         StartCoroutine(DelaySceneTransitions(3, 4, "Main Menu"));
         
     }
