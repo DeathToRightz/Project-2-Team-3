@@ -206,7 +206,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1673245825}
+      - m_Target: {fileID: 316758397}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: OnClickQuit
         m_Mode: 1
@@ -559,6 +559,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230049211}
   m_CullTransparentMesh: 1
+--- !u!1 &316758396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 316758398}
+  - component: {fileID: 316758397}
+  m_Layer: 0
+  m_Name: Menu Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &316758397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316758396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eef60de23227554b9b64afab354b272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeTransitionRef: {fileID: 587149292}
+  buttonSounds:
+  - {fileID: 8300000, guid: be63786d6939c9f4a87852b425653211, type: 3}
+  - {fileID: 8300000, guid: e7573deb73001d3459560cf3dbf6b2e3, type: 3}
+  - {fileID: 8300000, guid: c51fac4220646654bb76947206b3f461, type: 3}
+  - {fileID: 8300000, guid: 6d9596553dfa20e41a2f9a8640f10cfc, type: 3}
+  - {fileID: 8300000, guid: fedf7c956894da449a03d22ea73d0582, type: 3}
+  enterGame: {fileID: 0}
+--- !u!4 &316758398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316758396}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 585.5001, y: 316, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &480000351
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,7 +1028,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1673245825}
+      - m_Target: {fileID: 316758397}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
         m_MethodName: OnClickBack
         m_Mode: 1
@@ -1333,51 +1385,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642824971}
   m_CullTransparentMesh: 1
---- !u!1 &1673245824
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1673245826}
-  - component: {fileID: 1673245825}
-  m_Layer: 0
-  m_Name: Main Menus Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1673245825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673245824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eef60de23227554b9b64afab354b272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeTransitionRef: {fileID: 587149292}
---- !u!4 &1673245826
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673245824}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 585, y: 314, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2007315488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,4 +1461,4 @@ SceneRoots:
   - {fileID: 480000353}
   - {fileID: 950102398}
   - {fileID: 2007315491}
-  - {fileID: 1673245826}
+  - {fileID: 316758398}

@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] FadeTransition fadeTransitionRef;
-    private GameObject obj1, obj2;
+    [SerializeField] AudioClip[] buttonSounds;
+    [SerializeField] AudioClip enterGame;
+    private AudioSource audioSource;  
     private void Awake()
     {
-       
+        audioSource = GetComponent<AudioSource>() != null? audioSource = GetComponent<AudioSource>() : audioSource = gameObject.AddComponent<AudioSource>(); //If SoundManager object doesn't have a AudioSource                                                                                                                                                           //Creates one
     }
     private void Start()
     {
@@ -20,6 +22,7 @@ public class MenuController : MonoBehaviour
     
     public void OnClickPlay()
     {   
+        audioSource.PlayOneShot(enterGame);
         StartCoroutine(DelaySceneTransitions(3, 4, "Level1"));
     }
     public void OnClickQuit()
@@ -28,24 +31,18 @@ public class MenuController : MonoBehaviour
     }
     public void OnClickHelp()
     {
-
-        //obj1 =     SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Button1"));
-        
-        
-        StartCoroutine(DelaySceneTransitions(3, 4, "HelpMenu"));
-       
+        audioSource.PlayOneShot(buttonSounds[Random.Range(0, buttonSounds.Length-1)]);
+        StartCoroutine(DelaySceneTransitions(3, 4, "HelpMenu"));      
     }
     public void OnClickCredits()
     {
-        StartCoroutine(DelaySceneTransitions(3, 4, "CreditsMenu"));
-        
+        audioSource.PlayOneShot(buttonSounds[Random.Range(0, buttonSounds.Length - 1)]);
+        StartCoroutine(DelaySceneTransitions(3, 4, "CreditsMenu"));      
     }
     public void OnClickBack()
     {
-       //obj2 =  SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Button2"));
-
+        audioSource.PlayOneShot(buttonSounds[Random.Range(0, buttonSounds.Length - 1)]);
         StartCoroutine(DelaySceneTransitions(3, 4, "Main Menu"));
-        
     }
 
     private IEnumerator DelaySceneTransitions(float FadeDelay,float loadingDelay, string nameOfScene)

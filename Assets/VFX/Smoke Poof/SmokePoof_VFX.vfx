@@ -20,7 +20,7 @@ MonoBehaviour:
     x: 941
     y: -184
     width: 424
-    height: 1624
+    height: 1644
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1229,7 +1229,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Position, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":-0.5,"y":-0.5,"z":0.0}}'
+      m_SerializableObject: '{"position":{"x":0.5,"y":-0.5,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: A

@@ -2825,9 +2825,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 606623242988506034, guid: 890437071a62e2c45a3cdabf980bce24, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2234938195024607566, guid: 890437071a62e2c45a3cdabf980bce24, type: 3}
       propertyPath: m_Name
       value: Flame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2234938195024607566, guid: 890437071a62e2c45a3cdabf980bce24, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6614894303251027155, guid: 890437071a62e2c45a3cdabf980bce24, type: 3}
       propertyPath: m_LocalPosition.x

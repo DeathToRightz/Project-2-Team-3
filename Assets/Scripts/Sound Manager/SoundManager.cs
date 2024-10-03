@@ -229,9 +229,6 @@ public class SoundManager : MonoBehaviour
             MaxDistance = maxDistance;            
         }
     }
-
-
-
     private void CheckForDifferentScene(Scene currentScene, Scene newScene)
     {
         Debug.Log($"Currently soundPool is: {soundPool}");
