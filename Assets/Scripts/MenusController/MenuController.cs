@@ -31,7 +31,8 @@ public class MenuController : MonoBehaviour
     }
     public void OnClickHelp()
     {
-        audioSource.PlayOneShot(buttonSounds[Random.Range(0, buttonSounds.Length-1)]);
+        SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Button1"));
+        // audioSource.PlayOneShot(buttonSounds[Random.Range(0, buttonSounds.Length-1)]);
         StartCoroutine(DelaySceneTransitions(3, 4, "HelpMenu"));      
     }
     public void OnClickCredits()

@@ -45,16 +45,16 @@ public class SoundManager : MonoBehaviour
 #nullable disable
     public GameObject PlaySound(Vector3 location, SoundInfo soundInfo)
     {
-        
-            GameObject sound = soundPool.Get();
-       
-            sound.transform.position = location;
-            AudioSource source = SetupSound(sound, soundInfo);
 
-            source.Play();
-            Debug.Log(source.isPlaying);
-         
-        
+        GameObject sound = soundPool.Get();
+
+        sound.transform.position = location;
+        AudioSource source = SetupSound(sound, soundInfo);
+
+        source.Play();
+        Debug.Log(source.isPlaying);
+
+
         return sound;
     }
     public GameObject PlaySound(Transform transform, SoundInfo soundInfo)
@@ -105,20 +105,13 @@ public class SoundManager : MonoBehaviour
     }
     void OnGetFromPool(GameObject objectFromPool)
     {
-        Debug.Log(objectFromPool);
-        if(objectFromPool != null)
-        {
-            objectFromPool.SetActive(true);
-            return;
-        }
-
-        objectFromPool = new GameObject("Sound",typeof(AudioSource));
-       // objectFromPool.SetActive(true);
-    } //Nope
+         objectFromPool.SetActive(true);
+   
+    } 
     void OnReturnToPool(GameObject objectFromPool)
     {
         objectFromPool.SetActive(false);
-    } //Nope
+    } 
     private void OnDestroySound(GameObject soundToDestroy)
     {
         Destroy(soundToDestroy.gameObject);
@@ -232,12 +225,7 @@ public class SoundManager : MonoBehaviour
     private void CheckForDifferentScene(Scene currentScene, Scene newScene)
     {
         Debug.Log($"Currently soundPool is: {soundPool}");
-        if(soundPool == null)
-        {
-            Debug.Log("The sound pool is null");
-            soundPool.Clear();
-            return;
-        }
+        soundPool.Clear();
 
         Debug.Log($"{soundPool.CountInactive} objects are inactive");
         Debug.Log($"{soundPool.CountActive} objects are active");    
