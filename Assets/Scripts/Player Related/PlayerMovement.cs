@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerCollisions))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private ScriptableStats _stats;
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool _showDebug;
     private Rigidbody _rb;
     private Player_PushPullBox _playerPushScript;
+    private PlayerCollisions _collisions;
 
     //Inputs
     private PlayerInput _playerInput;
@@ -17,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     private float _verticalInput;
 
     //Movement
-    LayerMask _groundLayerMask;
     private float _currentVelocity;
     private Vector3 _moveDirection;
     private bool _grounded;
@@ -29,9 +30,8 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
-        _groundLayerMask = LayerMask.GetMask("Ground");
         _playerPushScript = GetComponent<Player_PushPullBox>();
-        
+        _collisions = GetComponent<PlayerCollisions>();
         _playerInput = new PlayerInput();
         _playerInput.PlayerActionMap.Enable();
     }
@@ -46,11 +46,11 @@ public class PlayerMovement : MonoBehaviour
     {
         _horizontalInput = _playerInput.PlayerActionMap.Movement.ReadValue<Vector2>().x;
         _verticalInput = _playerInput.PlayerActionMap.Movement.ReadValue<Vector2>().y;
+        _grounded = _collisions.GroundCollisionCheck();
     }
 
     private void FixedUpdate()
     {
-        GroundCollisionCheck();
         HandleHorizontal();
         ApplyMovement();
     }
@@ -102,13 +102,7 @@ public class PlayerMovement : MonoBehaviour
             _currentVelocity = Mathf.Clamp(_currentVelocity, 0, _stats.maxSpeedOnWindArea);
         }
     }
-
-    void GroundCollisionCheck()
-    {
-        float distance = 1.1f;
-        _grounded = Physics.Raycast(transform.position, Vector3.down, distance, _groundLayerMask);
-    }
-
+    
     #region Wind Functions
 
     /// <summary>
