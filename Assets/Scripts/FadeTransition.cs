@@ -19,6 +19,7 @@ public class FadeTransition : MonoBehaviour
         else
         {
             _instance = this;
+            
             DontDestroyOnLoad(this);
         }
     }

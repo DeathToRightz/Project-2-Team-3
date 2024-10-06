@@ -224,10 +224,9 @@ public class SoundManager : MonoBehaviour
     }
     private void CheckForDifferentScene(Scene currentScene, Scene newScene)
     {
-        Debug.Log($"Currently soundPool is: {soundPool}");
+        
         soundPool.Clear();
 
-        Debug.Log($"{soundPool.CountInactive} objects are inactive");
-        Debug.Log($"{soundPool.CountActive} objects are active");    
+         
     }
 }
