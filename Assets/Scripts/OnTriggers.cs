@@ -6,62 +6,57 @@ using UnityEngine;
 
 public class OnTriggers : MonoBehaviour
 {
-    [SerializeField,Tooltip("Should the collider start with entering or leaving")] bool triggerOnEnter;
-   
-    private Animator _animator;
+    [SerializeField, Tooltip("Should the collider start with entering or leaving")] bool triggerOnEnter;
+
+    [SerializeField] Animator _animatorController;
+
+    [SerializeField] Animator bobController;
    
     [SerializeField] string triggerBy;
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
-        if (_animator == null && transform.parent != null)
+        
+        if (_animatorController == null)
         {
-            Debug.LogError("Need to add animator to " + transform.parent.name);
-        }
-        else if(_animator == null && transform.parent == null)
-        {
-            Debug.LogError("Need to add animator to " + name);
+            Debug.LogError("Need animator controller for reference");
         }
         if(triggerBy == "")
         {
             Debug.LogError("Specify on what is going to trigger the collider");
         }
-    }
-
-    private void Start()
-    {
-      
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
+    } 
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!triggerOnEnter)
+        if(bobController != null)
         {
-            return;
+            if (!triggerOnEnter)
+            {
+                return;
+            }
+            if (other.name == triggerBy)
+            {
+                Debug.Log("Start Animation");
+                _animatorController.SetTrigger("Activate Animation");
+            }
         }
-        if(other.name == triggerBy)
-        {
-            Debug.Log("Set to enter");
-        }
+        
         
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(triggerOnEnter)
+        if (bobController != null)
         {
-            return;
+            if (triggerOnEnter)
+            {
+                return;
+            }
+            if (other.name == triggerBy)
+            {
+                Debug.Log("Set to Exit");
+            }
         }
-        if (other.name == triggerBy)
-        {
-            Debug.Log("Set to Exit");
-        }
+        
     }
 }
