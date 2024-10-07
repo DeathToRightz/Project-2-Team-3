@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 422974568}
   - component: {fileID: 422974567}
   - component: {fileID: 422974570}
+  - component: {fileID: 422974571}
   m_Layer: 0
   m_Name: Bob Model
   m_TagString: Untagged
@@ -401,7 +402,7 @@ Transform:
   m_GameObject: {fileID: 422974566}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5899999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -428,6 +429,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &422974571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422974566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b2921939c6f5f49a32c88e63058542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &428436041
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,65 +450,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 428436044}
-  - component: {fileID: 428436043}
-  - component: {fileID: 428436042}
   m_Layer: 0
-  m_Name: Bird Victim
+  m_Name: Bob Victim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &428436042
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428436041}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
---- !u!136 &428436043
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428436041}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &428436044
 Transform:
   m_ObjectHideFlags: 0
@@ -504,8 +465,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428436041}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.91, y: 2.16, z: -11.04}
+  m_LocalRotation: {x: -0, y: -0.10186172, z: -0, w: 0.9947986}
+  m_LocalPosition: {x: 39.40689, y: 1.96, z: -12.58667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -863,6 +824,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &835942901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835942895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b2921939c6f5f49a32c88e63058542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &917207148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1408517056254072829, guid: e3948031c36b0df46bbaefd0298c59ab, type: 3}
@@ -1086,6 +1059,9 @@ MonoBehaviour:
   triggerOnEnter: 0
   _animatorController: {fileID: 0}
   bobController: {fileID: 0}
+  bobVictimEvent:
+    m_PersistentCalls:
+      m_Calls: []
   triggerBy: 
 --- !u!65 &1220832222
 BoxCollider:
@@ -1310,7 +1286,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerOnEnter: 1
   _animatorController: {fileID: 835942898}
-  bobController: {fileID: 0}
+  bobController: {fileID: 422974570}
+  bobVictimEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1284427842}
+        m_TargetAssemblyTypeName: OnTriggers, Assembly-CSharp
+        m_MethodName: BobVictimScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   triggerBy: Player
 --- !u!65 &1284427843
 BoxCollider:
@@ -1954,6 +1945,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 482c53d7a27e0004dbd0ae4c3cb208a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 835942898}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 482c53d7a27e0004dbd0ae4c3cb208a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 835942901}
   m_SourcePrefab: {fileID: 100100000, guid: 482c53d7a27e0004dbd0ae4c3cb208a3, type: 3}
 --- !u!1 &2084065420
 GameObject:
@@ -1979,14 +1973,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2084065420}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.17144565, z: -0, w: 0.98519367}
-  m_LocalPosition: {x: 40.24, y: 2.55, z: -14.63}
+  m_LocalRotation: {x: -0, y: -0.10186172, z: -0, w: 0.9947986}
+  m_LocalPosition: {x: 40.515217, y: 2.55, z: -13.797173}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 422974569}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -19.744, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4191656902751020368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2061,6 +2055,6 @@ SceneRoots:
   - {fileID: 1440212770}
   - {fileID: 1284427846}
   - {fileID: 4191656902751020368}
+  - {fileID: 1305757920}
   - {fileID: 428436044}
   - {fileID: 2084065421}
-  - {fileID: 1305757920}
