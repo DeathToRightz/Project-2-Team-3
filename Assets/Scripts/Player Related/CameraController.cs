@@ -5,21 +5,19 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private GameObject _player;
-    [SerializeField] private Vector3 _offsetToPlayer;
-   
-    
+    private Transform _player;
+    private Transform _targetPos;
+
     // Start is called before the first frame update
     void Start()
     {
-        _player = FindFirstObjectByType<PlayerMovement>().gameObject;
-         
+        _player = FindFirstObjectByType<PlayerMovement>().transform;
+        _targetPos = FindFirstObjectByType<CameraTargetPos>().gameObject.transform;
     }
     
-    private void LateUpdate()
+    private void FixedUpdate()
     {
-        transform.position = _player.transform.position + _offsetToPlayer;
-       
+        transform.position = Vector3.Lerp(transform.position, _targetPos.transform.position, Time.deltaTime * 10);
         transform.LookAt(_player.transform);
     }
 }
