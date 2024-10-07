@@ -21,6 +21,7 @@ public class Player_PushPullBox : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         _playerInput = GetComponent<PlayerMovement>().PlayerInput;
         _playerInput.PlayerActionMap.Grab.started += _ => JointAttachDetach();
+        
     }
 
     private void JointAttachDetach()
