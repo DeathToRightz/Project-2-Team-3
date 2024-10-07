@@ -14,6 +14,10 @@ public class DemonPatrolling : MonoBehaviour
     private int patrolIndex = 0;  // Keeps track of which patrol point in list
 
     private DemonFOV demonFOVRef;  // References the demonPOV script for seeing the player
+
+    [SerializeField] float locationDelayChange = 5f;
+
+    private float timeTracker = 0f;
     private void Awake()
     {
         //if the demon has a NavMeshAgent attached to itself it will give the agent a value, if not it will create one
@@ -37,31 +41,64 @@ public class DemonPatrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       // Debug.Log(timeTracker);
         //If demon can patrol, patrols
         if (allowedToPatrol)
-        {            
-            StartPatrolling(patrolLocations);
+        {
+            //StartCoroutine(DelayPathing(patrolLocations, locationDelayChange));
+            StartPatrolling(patrolLocations, locationDelayChange);
         }
 
 
     }
 
 
-    void StartPatrolling(List<Transform> incomingLocations) //Method for patrolling demon functionality
+    void StartPatrolling(List<Transform> incomingLocations,float incomingDelay) //Method for patrolling demon functionality
     {
-        if ((!agent.pathPending && agent.remainingDistance < .5f) && !demonFOVRef.canSeePlayer) //IF the demon's path isn't pending and is close to location move to next point
-                                                                                                // as long as it doesn't see player
+        /*if ((!agent.pathPending && agent.remainingDistance < .5f) && !demonFOVRef.canSeePlayer) //IF the demon's path isn't pending and is close to location move to next point
         {
+
             agent.destination = incomingLocations[patrolIndex].position;
             patrolIndex = (patrolIndex + 1) % incomingLocations.Count;
+            Debug.Log(agent.destination);
+
+        }*/
+        if(timeTracker < incomingDelay)
+        {
+            timeTracker += Time.deltaTime;
+            
         }
         else
         {
-            ChasePlayer(aggroTowardPlayer); //If demon does see player activates ChasePlayer function
+            if ((!agent.pathPending && agent.remainingDistance < .5f) && !demonFOVRef.canSeePlayer) //IF the demon's path isn't pending and is close to location move to next point
+            {
+                agent.destination = incomingLocations[patrolIndex].position;
+                patrolIndex = (patrolIndex + 1) % incomingLocations.Count;
+
+            }
         }
-    
+
+
+        /*else
+        {
+            ChasePlayer(aggroTowardPlayer); //If demon does see player activates ChasePlayer function
+        }*/
+
     }
+ 
+    IEnumerator DelayPathing(List <Transform> incomingLocations,float incomingDelay)
+    {
+        //StartPatrolling (incomingLocations);
+        if (agent.pathPending)
+        {
+            yield return new WaitForSeconds(incomingDelay);
+        }
+       
+    }
+    
+
+    
+    
     void ChasePlayer(bool shouldChasePlayer) //Method for chasing player, that takes a bool
     {
         if (shouldChasePlayer) //Uses the reference form the demonPOV script and if it does see the player chases it

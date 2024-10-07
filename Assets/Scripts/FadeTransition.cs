@@ -23,6 +23,10 @@ public class FadeTransition : MonoBehaviour
             DontDestroyOnLoad(this);
         }
     }
+    private void Start()
+    {
+        SceneManager.activeSceneChanged += CheckForDifferentScene;
+    }
 
     public void FadeIn(float incomingTimer) //When calling the FadeIn/FadeOut it will ask for a timer for prolong the transition
     {
@@ -56,7 +60,12 @@ public class FadeTransition : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
-    
+
+    private void CheckForDifferentScene(Scene currentScene, Scene newScene)
+    {
+        FadeOut(3);
+    }
+
 #if UNITY_EDITOR
     private void OnValidate()
     {

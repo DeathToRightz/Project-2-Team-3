@@ -8,6 +8,8 @@ public class OnTriggers : MonoBehaviour
 {
     [SerializeField, Tooltip("Should the collider start with entering or leaving")] bool triggerOnEnter;
 
+    [SerializeField, Tooltip("Should the associated collider destroy itself after triggering animation/event")] bool destroyAfterUse;
+   
     [SerializeField] Animator _animatorController;
     
     [SerializeField] Animator bobController;
@@ -37,20 +39,23 @@ public class OnTriggers : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        
-            if (!triggerOnEnter)
-            {
-                return;
-            }
-            if (other.name == triggerBy)
-            {
-                
+
+        if (!triggerOnEnter)
+        {
+            return;
+        }
+        if (other.name == triggerBy)
+        {
             bobVictimEvent.Invoke();
-            Debug.Log("Start Animation");                       
-            }
-        
-        
-        
+            Debug.Log("Start Animation");
+        }
+        if (destroyAfterUse)
+        {
+            Destroy(gameObject);
+        }
+
+
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -64,6 +69,10 @@ public class OnTriggers : MonoBehaviour
             if (other.name == triggerBy)
             {
                 bobVictimEvent.Invoke();
+                if(destroyAfterUse)
+                {
+                    Destroy(gameObject);
+                }
                 Debug.Log("Set to Exit");
             }
         }
