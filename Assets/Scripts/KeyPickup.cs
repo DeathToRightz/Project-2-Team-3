@@ -13,7 +13,7 @@ public class KeyPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _doorAnimation = _doorToOpen.GetComponent<Animation>();
+        _doorAnimation = _doorToOpen.GetComponentInChildren<Animation>();
     }
 
     // Update is called once per frame
