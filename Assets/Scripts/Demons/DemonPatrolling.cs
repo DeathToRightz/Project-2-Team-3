@@ -41,7 +41,7 @@ public class DemonPatrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(timeTracker);
+        
         //If demon can patrol, patrols
         if (allowedToPatrol)
         {

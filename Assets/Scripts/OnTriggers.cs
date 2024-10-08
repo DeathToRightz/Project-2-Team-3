@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Animations;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
 public class OnTriggers : MonoBehaviour
@@ -10,32 +11,31 @@ public class OnTriggers : MonoBehaviour
 
     [SerializeField, Tooltip("Should the associated collider destroy itself after triggering animation/event")] bool destroyAfterUse;
    
-    [SerializeField] Animator _animatorController;
+    [SerializeField] List<Animator> animations;
     
-    [SerializeField] Animator bobController;
+    [SerializeField] UnityEvent animationEvent = new UnityEvent();
 
-    [SerializeField] UnityEvent bobVictimEvent = new UnityEvent();
-
-    [SerializeField] string triggerBy;
+    [SerializeField] string triggerByTag;
     private void Awake()
     {
         
-        if (_animatorController == null)
+        if (animations == null)
         {
             Debug.LogError("Need animator controller for reference");
         }
-        if(triggerBy == "")
+        if(triggerByTag == "")
         {
             Debug.LogError("Specify on what is going to trigger the collider");
         }
     }
 
 
-    public void BobVictimScene()
+    public void StartAnimations()
     {
-        _animatorController.SetTrigger("Activate Animation");
-        bobController.SetTrigger("Activate Animation");
-        
+       for(int i = 0; i <= animations.Count-1; i++)
+        {
+            animations[i].SetTrigger("Activate Animation");
+        }    
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -44,38 +44,37 @@ public class OnTriggers : MonoBehaviour
         {
             return;
         }
-        if (other.name == triggerBy)
+        if (other.tag == triggerByTag)
         {
-            bobVictimEvent.Invoke();
-            Debug.Log("Start Animation");
+            animationEvent.Invoke();
+            
         }
         if (destroyAfterUse)
         {
             Destroy(gameObject);
         }
-
+        Debug.Log("Set to Start");
 
 
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (bobController != null)
-        {
+        
             if (triggerOnEnter)
             {
                 return;
             }
-            if (other.name == triggerBy)
+            if (other.tag == triggerByTag)
             {
-                bobVictimEvent.Invoke();
+                animationEvent.Invoke();
                 if(destroyAfterUse)
                 {
                     Destroy(gameObject);
                 }
                 Debug.Log("Set to Exit");
             }
-        }
+        
         
     }
 

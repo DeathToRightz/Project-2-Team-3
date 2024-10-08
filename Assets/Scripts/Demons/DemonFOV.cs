@@ -18,7 +18,7 @@ public class DemonFOV : MonoBehaviour
     [SerializeField] public Vector3 directionToTarget;
 
     private float distanceToTarget;
-
+    private GameObject demonScream;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -35,7 +35,9 @@ public class DemonFOV : MonoBehaviour
         if(canSeePlayer)
         {
             VisualizeFOV(distanceToTarget, directionToTarget);
+            
         }
+        
        
     }
     private IEnumerator FOVRoutine()
@@ -65,8 +67,17 @@ public class DemonFOV : MonoBehaviour
                 if (!Physics.Raycast(transform.position,directionToTarget,distanceToTarget,obstructionLayers))
                 {
                     canSeePlayer = true;
-                   
-                   
+                    if(demonScream == null || !demonScream.activeSelf)
+                    {
+                        demonScream = SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Demon Bird Cry"));
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    
+
+
                 }
                 else
                 {
