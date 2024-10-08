@@ -36,6 +36,13 @@ public class PlayerMovement : MonoBehaviour
         _playerInput.PlayerActionMap.Enable();
     }
 
+    private void Start()
+    {
+        if(SoundManager.instance != null)
+        {
+            SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("War Drums"));
+        }
+    }
     private void OnDisable()
     {
         _playerInput.PlayerActionMap.Disable();
