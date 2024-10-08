@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -610,6 +610,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24dd49dda8b27294f8e29f4d187a9aca, type: 3}
+--- !u!1001 &1472464924
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4807350257540185921, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.0947304
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807350257540185921, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7320362
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807350257540185921, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.20973492
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807350257540185921, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807350257540185921, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807350257540185921, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807350257540185921, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807350257540185921, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807350257540185921, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4807350257540185921, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5331403489889281531, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
+      propertyPath: m_Name
+      value: IntroDemon
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 482ee32b11a139948b7b547595a9ead0, type: 3}
 --- !u!1001 &1687927518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -740,3 +797,4 @@ SceneRoots:
   - {fileID: 2036985455}
   - {fileID: 712625835}
   - {fileID: 987375835}
+  - {fileID: 1472464924}
