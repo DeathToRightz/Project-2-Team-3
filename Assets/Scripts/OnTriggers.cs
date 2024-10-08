@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Animations;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Events;
 public class OnTriggers : MonoBehaviour
@@ -25,7 +23,7 @@ public class OnTriggers : MonoBehaviour
         }
         if(triggerByTag == "")
         {
-            Debug.LogError("Specify on what is going to trigger the collider");
+            Debug.LogError("Specify on what is going to trigger the collider on " + transform.name);
         }
     }
 
