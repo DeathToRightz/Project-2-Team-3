@@ -41,11 +41,11 @@ public class DemonPatrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log(timeTracker);
+        Debug.Log(timeTracker);
         //If demon can patrol, patrols
         if (allowedToPatrol)
         {
-            //StartCoroutine(DelayPathing(patrolLocations, locationDelayChange));
+            
             StartPatrolling(patrolLocations, locationDelayChange);
         }
 
@@ -53,52 +53,32 @@ public class DemonPatrolling : MonoBehaviour
     }
 
 
-    void StartPatrolling(List<Transform> incomingLocations,float incomingDelay) //Method for patrolling demon functionality
+    void StartPatrolling(List<Transform> incomingLocations, float incomingDelay) //Method for patrolling demon functionality
     {
-        /*if ((!agent.pathPending && agent.remainingDistance < .5f) && !demonFOVRef.canSeePlayer) //IF the demon's path isn't pending and is close to location move to next point
-        {
-
-            agent.destination = incomingLocations[patrolIndex].position;
-            patrolIndex = (patrolIndex + 1) % incomingLocations.Count;
-            Debug.Log(agent.destination);
-
-        }*/
-        if(timeTracker < incomingDelay)
+        if(timeTracker < incomingDelay && agent.remainingDistance !< .5f)
         {
             timeTracker += Time.deltaTime;
-            
+            return;
         }
-        else
+        else 
         {
             if ((!agent.pathPending && agent.remainingDistance < .5f) && !demonFOVRef.canSeePlayer) //IF the demon's path isn't pending and is close to location move to next point
             {
+                timeTracker = 0f;
                 agent.destination = incomingLocations[patrolIndex].position;
                 patrolIndex = (patrolIndex + 1) % incomingLocations.Count;
 
             }
+            else
+            {
+                ChasePlayer(aggroTowardPlayer);
+            }
         }
+        
 
-
-        /*else
-        {
-            ChasePlayer(aggroTowardPlayer); //If demon does see player activates ChasePlayer function
-        }*/
-
-    }
- 
-    IEnumerator DelayPathing(List <Transform> incomingLocations,float incomingDelay)
-    {
-        //StartPatrolling (incomingLocations);
-        if (agent.pathPending)
-        {
-            yield return new WaitForSeconds(incomingDelay);
-        }
        
     }
-    
-
-    
-    
+ 
     void ChasePlayer(bool shouldChasePlayer) //Method for chasing player, that takes a bool
     {
         if (shouldChasePlayer) //Uses the reference form the demonPOV script and if it does see the player chases it
