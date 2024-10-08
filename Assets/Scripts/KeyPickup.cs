@@ -19,7 +19,7 @@ public class KeyPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.up, _rotationSpeed);
+        transform.Rotate(Vector3.up, _rotationSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
