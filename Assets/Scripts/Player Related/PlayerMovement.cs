@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         if(SoundManager.instance != null)
         {
             SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("War Drums"));

@@ -74,10 +74,10 @@ MonoBehaviour:
   radius: 10
   obstructionLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   targetLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   playerRef: {fileID: 0}
   canSeePlayer: 0
   directionToTarget: {x: 0, y: 0, z: 0}
