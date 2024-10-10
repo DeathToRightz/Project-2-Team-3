@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraController : MonoBehaviour
 {
     private Transform _player;
@@ -13,6 +14,8 @@ public class CameraController : MonoBehaviour
     {
         _player = FindFirstObjectByType<PlayerMovement>().transform;
         _targetPos = FindFirstObjectByType<CameraTargetPos>().gameObject.transform;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     
     private void FixedUpdate()

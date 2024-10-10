@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6007420189458821771}
+  - component: {fileID: 1679907076991186211}
+  - component: {fileID: 1963879684240990971}
   m_Layer: 0
   m_Name: PressurePlateParent
   m_TagString: Untagged
@@ -32,6 +34,44 @@ Transform:
   - {fileID: 572785346846178352}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1679907076991186211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946262701913754988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4394137bae8687e49a0a3cbc0c0423c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkPlatesEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!136 &1963879684240990971
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946262701913754988}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.0537477
+  m_Height: 2.1074953
+  m_Direction: 1
+  m_Center: {x: 0.011833906, y: 0, z: 0}
 --- !u!1001 &33856443462310875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90,12 +130,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eb675ebadb90bbc4babc62d9b813c69d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3235006528003168768}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eb675ebadb90bbc4babc62d9b813c69d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 795974681357984646}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: eb675ebadb90bbc4babc62d9b813c69d, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 6919724987877194220}
   m_SourcePrefab: {fileID: 100100000, guid: eb675ebadb90bbc4babc62d9b813c69d, type: 3}
 --- !u!4 &572785346846178352 stripped
@@ -108,61 +142,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: eb675ebadb90bbc4babc62d9b813c69d, type: 3}
   m_PrefabInstance: {fileID: 33856443462310875}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3235006528003168768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916800903147742858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32bf53126f5b4c14da089f83e1732dbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerOnEnter: 1
-  destroyAfterUse: 0
-  animations:
-  - {fileID: 0}
-  - {fileID: 6919724987877194220}
-  animationEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3235006528003168768}
-        m_TargetAssemblyTypeName: OnTriggers, Assembly-CSharp
-        m_MethodName: StartAnimations
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  triggerByTag: Pushable
---- !u!64 &795974681357984646
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916800903147742858}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4523576878071891012, guid: eb675ebadb90bbc4babc62d9b813c69d, type: 3}
 --- !u!95 &6919724987877194220
 Animator:
   serializedVersion: 5
