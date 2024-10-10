@@ -46,11 +46,11 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""MouseX"",
+                    ""name"": ""Camera"",
                     ""type"": ""Value"",
                     ""id"": ""b8a2cabd-10c7-47df-9433-169946807ad4"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""ScaleVector2(x=3)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 }
@@ -167,35 +167,57 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""5f3e9b98-cc8f-4dc5-84e7-9158a89886f9"",
-                    ""path"": ""1DAxis"",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""b4c9861c-1238-47b7-a203-9a63c0324cc6"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MouseX"",
+                    ""action"": ""Camera"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""abe4d5c5-eb7e-43e7-b975-f1a56edadf6b"",
-                    ""path"": ""<Mouse>/delta/left"",
+                    ""name"": ""up"",
+                    ""id"": ""949d3de0-b1c5-4410-a558-4b84d6daa91f"",
+                    ""path"": ""<Mouse>/delta/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""MouseX"",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""334ef06c-cc07-4738-9839-77a203823b95"",
+                    ""name"": ""down"",
+                    ""id"": ""afdaab2e-0203-453a-a1d9-c91296a5f43c"",
+                    ""path"": ""<Mouse>/delta/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2434e429-ec3d-408b-861a-9a8843b8441f"",
+                    ""path"": ""<Mouse>/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""7ef067d2-4692-40ec-ac87-36af8a989b72"",
                     ""path"": ""<Mouse>/delta/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""MouseX"",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -214,7 +236,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_PlayerActionMap = asset.FindActionMap("PlayerActionMap", throwIfNotFound: true);
         m_PlayerActionMap_Movement = m_PlayerActionMap.FindAction("Movement", throwIfNotFound: true);
         m_PlayerActionMap_Grab = m_PlayerActionMap.FindAction("Grab", throwIfNotFound: true);
-        m_PlayerActionMap_MouseX = m_PlayerActionMap.FindAction("MouseX", throwIfNotFound: true);
+        m_PlayerActionMap_Camera = m_PlayerActionMap.FindAction("Camera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -278,14 +300,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IPlayerActionMapActions> m_PlayerActionMapActionsCallbackInterfaces = new List<IPlayerActionMapActions>();
     private readonly InputAction m_PlayerActionMap_Movement;
     private readonly InputAction m_PlayerActionMap_Grab;
-    private readonly InputAction m_PlayerActionMap_MouseX;
+    private readonly InputAction m_PlayerActionMap_Camera;
     public struct PlayerActionMapActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerActionMapActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_PlayerActionMap_Movement;
         public InputAction @Grab => m_Wrapper.m_PlayerActionMap_Grab;
-        public InputAction @MouseX => m_Wrapper.m_PlayerActionMap_MouseX;
+        public InputAction @Camera => m_Wrapper.m_PlayerActionMap_Camera;
         public InputActionMap Get() { return m_Wrapper.m_PlayerActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -301,9 +323,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Grab.started += instance.OnGrab;
             @Grab.performed += instance.OnGrab;
             @Grab.canceled += instance.OnGrab;
-            @MouseX.started += instance.OnMouseX;
-            @MouseX.performed += instance.OnMouseX;
-            @MouseX.canceled += instance.OnMouseX;
+            @Camera.started += instance.OnCamera;
+            @Camera.performed += instance.OnCamera;
+            @Camera.canceled += instance.OnCamera;
         }
 
         private void UnregisterCallbacks(IPlayerActionMapActions instance)
@@ -314,9 +336,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Grab.started -= instance.OnGrab;
             @Grab.performed -= instance.OnGrab;
             @Grab.canceled -= instance.OnGrab;
-            @MouseX.started -= instance.OnMouseX;
-            @MouseX.performed -= instance.OnMouseX;
-            @MouseX.canceled -= instance.OnMouseX;
+            @Camera.started -= instance.OnCamera;
+            @Camera.performed -= instance.OnCamera;
+            @Camera.canceled -= instance.OnCamera;
         }
 
         public void RemoveCallbacks(IPlayerActionMapActions instance)
@@ -347,6 +369,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
-        void OnMouseX(InputAction.CallbackContext context);
+        void OnCamera(InputAction.CallbackContext context);
     }
 }

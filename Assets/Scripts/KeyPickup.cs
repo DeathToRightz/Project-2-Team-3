@@ -1,14 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class KeyPickup : MonoBehaviour
 {
     [SerializeField] private float _rotationSpeed;
-    [SerializeField, Tooltip("Door gameObject that this key opens. Door opens when key is collected.")]
+    
+    [SerializeField, Tooltip("Door gameObject that this key opens. Door opens when key is collected.")] 
     private GameObject _doorToOpen;
+    [SerializeField, Tooltip("Camera to activate during animation")] 
+    private GameObject _cinematicCamera;
+    
     private Animation _doorAnimation;
+    private PlayerMovement _player;
     
     // Start is called before the first frame update
     void Start()
@@ -26,8 +32,31 @@ public class KeyPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _doorAnimation.Play();
-            Destroy(gameObject);
+            foreach (var meshRenderer in GetComponentsInChildren<MeshRenderer>()) //turn object invisible
+            {
+                if(meshRenderer == null) return;
+                meshRenderer.enabled = false;
+            }
+
+            _player = other.GetComponent<PlayerMovement>();
+            _player.PlayerInput.Disable();
+            StartCoroutine(StartAnimation(1));
         }
+    }
+
+    private IEnumerator StartAnimation(float delay)
+    {
+        _cinematicCamera.SetActive(true);
+        yield return new WaitForSeconds(delay);
+        _doorAnimation.Play();
+        StartCoroutine(AnimationEnd(_doorAnimation.clip.length));
+    }
+    
+    private IEnumerator AnimationEnd(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        _cinematicCamera.SetActive(false);
+        _player.PlayerInput.Enable();
+        Destroy(gameObject);
     }
 }
