@@ -12,7 +12,7 @@ public class PressurePlateManager : MonoBehaviour
 
     private void Start()
     {  
-        for (int i = 0; i <= plates.Count-1; i++)
+        for (int i = 0; i <= plates.Count-1; i++) // Start of game will add the desired plates from above to the list on the assigned door
         {
             plateDownChecker.Add(plates[i].GetComponent<PressurePlates>().plateIsDown);
            
@@ -23,7 +23,8 @@ public class PressurePlateManager : MonoBehaviour
 
     
 
-    public void SendBoolCheckToDoor()
+    public void SendBoolCheckToDoor() //Gets the plateIsDown member variable from List of GameObjects
+                                      //above to count how many plates needed to keep track of for door
     {
         for (int i = 0; i <= plates.Count - 1; i++)
         {
