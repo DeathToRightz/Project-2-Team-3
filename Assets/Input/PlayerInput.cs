@@ -222,6 +222,54 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""PlayerRunerActionMap"",
+            ""id"": ""d938e073-a9ba-4e94-9e84-5f33b714fcde"",
+            ""actions"": [
+                {
+                    ""name"": ""ChangeToLaneLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""9a497a1a-5a41-4d20-a512-913e639c2af1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeToLaneRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""b79d239e-63c5-4034-b74d-d82e1e6184d7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3e328df4-7606-4040-9d7e-2b0dc3fff89f"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ChangeToLaneLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74e4dc9f-f4d0-4241-8177-42e2c6837a8c"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ChangeToLaneRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -237,6 +285,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_PlayerActionMap_Movement = m_PlayerActionMap.FindAction("Movement", throwIfNotFound: true);
         m_PlayerActionMap_Grab = m_PlayerActionMap.FindAction("Grab", throwIfNotFound: true);
         m_PlayerActionMap_Camera = m_PlayerActionMap.FindAction("Camera", throwIfNotFound: true);
+        // PlayerRunerActionMap
+        m_PlayerRunerActionMap = asset.FindActionMap("PlayerRunerActionMap", throwIfNotFound: true);
+        m_PlayerRunerActionMap_ChangeToLaneLeft = m_PlayerRunerActionMap.FindAction("ChangeToLaneLeft", throwIfNotFound: true);
+        m_PlayerRunerActionMap_ChangeToLaneRight = m_PlayerRunerActionMap.FindAction("ChangeToLaneRight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -356,6 +408,60 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActionMapActions @PlayerActionMap => new PlayerActionMapActions(this);
+
+    // PlayerRunerActionMap
+    private readonly InputActionMap m_PlayerRunerActionMap;
+    private List<IPlayerRunerActionMapActions> m_PlayerRunerActionMapActionsCallbackInterfaces = new List<IPlayerRunerActionMapActions>();
+    private readonly InputAction m_PlayerRunerActionMap_ChangeToLaneLeft;
+    private readonly InputAction m_PlayerRunerActionMap_ChangeToLaneRight;
+    public struct PlayerRunerActionMapActions
+    {
+        private @PlayerInput m_Wrapper;
+        public PlayerRunerActionMapActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ChangeToLaneLeft => m_Wrapper.m_PlayerRunerActionMap_ChangeToLaneLeft;
+        public InputAction @ChangeToLaneRight => m_Wrapper.m_PlayerRunerActionMap_ChangeToLaneRight;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerRunerActionMap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerRunerActionMapActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerRunerActionMapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_PlayerRunerActionMapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerRunerActionMapActionsCallbackInterfaces.Add(instance);
+            @ChangeToLaneLeft.started += instance.OnChangeToLaneLeft;
+            @ChangeToLaneLeft.performed += instance.OnChangeToLaneLeft;
+            @ChangeToLaneLeft.canceled += instance.OnChangeToLaneLeft;
+            @ChangeToLaneRight.started += instance.OnChangeToLaneRight;
+            @ChangeToLaneRight.performed += instance.OnChangeToLaneRight;
+            @ChangeToLaneRight.canceled += instance.OnChangeToLaneRight;
+        }
+
+        private void UnregisterCallbacks(IPlayerRunerActionMapActions instance)
+        {
+            @ChangeToLaneLeft.started -= instance.OnChangeToLaneLeft;
+            @ChangeToLaneLeft.performed -= instance.OnChangeToLaneLeft;
+            @ChangeToLaneLeft.canceled -= instance.OnChangeToLaneLeft;
+            @ChangeToLaneRight.started -= instance.OnChangeToLaneRight;
+            @ChangeToLaneRight.performed -= instance.OnChangeToLaneRight;
+            @ChangeToLaneRight.canceled -= instance.OnChangeToLaneRight;
+        }
+
+        public void RemoveCallbacks(IPlayerRunerActionMapActions instance)
+        {
+            if (m_Wrapper.m_PlayerRunerActionMapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayerRunerActionMapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_PlayerRunerActionMapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_PlayerRunerActionMapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public PlayerRunerActionMapActions @PlayerRunerActionMap => new PlayerRunerActionMapActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -370,5 +476,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
+    }
+    public interface IPlayerRunerActionMapActions
+    {
+        void OnChangeToLaneLeft(InputAction.CallbackContext context);
+        void OnChangeToLaneRight(InputAction.CallbackContext context);
     }
 }
