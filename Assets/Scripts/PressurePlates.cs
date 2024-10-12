@@ -7,7 +7,7 @@ public class PressurePlates : MonoBehaviour
 {  
     private Animator animator;
 
-    [SerializeField] UnityEvent checkAllPlatesEvent = new UnityEvent();
+    [SerializeField, Tooltip ("Attach the Pressue Plate Manager that is holding this plate and select the SendBoolCheckToDoor")] UnityEvent checkAllPlatesEvent = new UnityEvent();
 
     
     public bool plateIsDown;

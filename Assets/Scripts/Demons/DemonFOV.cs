@@ -67,14 +67,18 @@ public class DemonFOV : MonoBehaviour
                 if (!Physics.Raycast(transform.position,directionToTarget,distanceToTarget,obstructionLayers))
                 {
                     canSeePlayer = true;
-                    if(demonScream == null || !demonScream.activeSelf)
+                    if(SoundManager.instance != null)
                     {
-                        demonScream = SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Demon Bird Cry"));
+                        if (demonScream == null || !demonScream.activeSelf)
+                        {
+                            demonScream = SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Demon Bird Cry"));
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
-                    else
-                    {
-                        return;
-                    }
+                    
                     
 
 
