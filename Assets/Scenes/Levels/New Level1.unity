@@ -154,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 10984416}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.006, y: 1.6894009, z: 0.78663635}
+  m_LocalPosition: {x: -0.010974368, y: 1.5391344, z: 0.7143125}
   m_LocalScale: {x: 0.026606629, y: 0.56520754, z: 0.041572858}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f40201bc66f7af4894f95c2a9588551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neededPlatesUp: 
+  plateCount: 0
 --- !u!1 &22491007
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ Transform:
   m_GameObject: {fileID: 22491007}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18696028, y: -0.2658608, z: -1.7396964}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.2528944, y: 3.677, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -729,7 +729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.981651
+      value: -21.9
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalPosition.y
@@ -737,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.6716061
+      value: -8.85
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2357,7 +2357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5600755554400280801, guid: e3948031c36b0df46bbaefd0298c59ab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.41
+      value: -15.32
       objectReference: {fileID: 0}
     - target: {fileID: 5600755554400280801, guid: e3948031c36b0df46bbaefd0298c59ab, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2494,7 +2494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2502,7 +2502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.85
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2690,7 +2690,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 10984418}
         m_TargetAssemblyTypeName: BrickDoor, Assembly-CSharp
-        m_MethodName: GetIncomingBoolList
+        m_MethodName: CheckIfAllPlatesAreDown
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2972,7 +2972,7 @@ Transform:
   m_GameObject: {fileID: 1244185237}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18696028, y: -0.2658608, z: -1.7396964}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.2528944, y: 3.677, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3215,7 +3215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6840347910038838420, guid: cdaafce4edff6c24388974458345cc6a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.41
+      value: -6.32
       objectReference: {fileID: 0}
     - target: {fileID: 6840347910038838420, guid: cdaafce4edff6c24388974458345cc6a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3472,7 +3472,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1693273680}
         m_TargetAssemblyTypeName: BrickDoor, Assembly-CSharp
-        m_MethodName: GetIncomingBoolList
+        m_MethodName: CheckIfAllPlatesAreDown
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3536,7 +3536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2380451028184718203, guid: be8bbb615a4d60c4292961d2c1ab39be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.41
+      value: -15.32
       objectReference: {fileID: 0}
     - target: {fileID: 2380451028184718203, guid: be8bbb615a4d60c4292961d2c1ab39be, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4126,7 +4126,7 @@ Transform:
   m_GameObject: {fileID: 1693273678}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.009735962, y: 2.1099727, z: 0.8879911}
+  m_LocalPosition: {x: -0.00078484043, y: 1.906572, z: 0.79009306}
   m_LocalScale: {x: 0.05627302, y: 0.765065, z: 0.05627302}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4145,7 +4145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f40201bc66f7af4894f95c2a9588551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neededPlatesUp: 
+  plateCount: 0
 --- !u!1 &1696730038 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3946262701913754988, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
@@ -4721,7 +4721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 897006309049346412, guid: fbfad6e814153fd408bbd85a1f974088, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.262
       objectReference: {fileID: 0}
     - target: {fileID: 897006309049346412, guid: fbfad6e814153fd408bbd85a1f974088, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4877,7 +4877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.97
+      value: -22.75
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4885,7 +4885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.51
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 6007420189458821771, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_LocalRotation.w
