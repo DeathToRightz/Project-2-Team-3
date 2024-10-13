@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _isAffectedByWind;
 
     public PlayerInput PlayerInput => _playerInput;
+
+    private Animator _animator;
     
     // Start is called before the first frame update
     void Awake()
@@ -34,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         _collisions = GetComponent<PlayerCollisions>();
         _playerInput = new PlayerInput();
         _playerInput.PlayerActionMap.Enable();
+        _animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -91,6 +94,8 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = new Vector3(_moveDirection.x, _rb.velocity.y, _moveDirection.z);
 
         if (_moveDirection == Vector3.zero || _playerPushScript.IsAttached) return;
+
+        if(_moveDirection.z > 1) { Debug.Log("Moving forward"); }else if(_moveDirection.z < -1) { Debug.Log("Moving back"); }
         
         //rotate player towards direction of movement
         Quaternion targetRotation = Quaternion.LookRotation(_moveDirection, Vector3.up);

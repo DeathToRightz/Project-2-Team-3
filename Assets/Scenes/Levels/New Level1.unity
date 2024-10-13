@@ -1207,7 +1207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &222789705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1329,7 +1329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &238910957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4778,7 +4778,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5165110907639515188, guid: cdaafce4edff6c24388974458345cc6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1979995536}
   m_SourcePrefab: {fileID: 100100000, guid: cdaafce4edff6c24388974458345cc6a, type: 3}
 --- !u!4 &1266730039 stripped
 Transform:
@@ -6061,7 +6064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &1948776800
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6183,7 +6186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &1957194938
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6354,6 +6357,32 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 289348501}
   m_SourcePrefab: {fileID: 100100000, guid: a47633c56a76ef14fb349f7d1cfa7835, type: 3}
+--- !u!1 &1979995532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5165110907639515188, guid: cdaafce4edff6c24388974458345cc6a, type: 3}
+  m_PrefabInstance: {fileID: 1266730038}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1979995536
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979995532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02e063a6d7525a44c99b5a091ad2d28d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &2005144900 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 897006309049346412, guid: fbfad6e814153fd408bbd85a1f974088, type: 3}
@@ -6961,6 +6990,7 @@ SceneRoots:
   - {fileID: 1671548949}
   - {fileID: 112368935}
   - {fileID: 391093117}
+  - {fileID: 220883283}
   - {fileID: 1266730038}
   - {fileID: 832811563}
   - {fileID: 1464587107}
@@ -6968,7 +6998,6 @@ SceneRoots:
   - {fileID: 1247155239}
   - {fileID: 1635599269}
   - {fileID: 289356685}
-  - {fileID: 220883283}
   - {fileID: 1022567782}
   - {fileID: 566755945}
   - {fileID: 160014382}
