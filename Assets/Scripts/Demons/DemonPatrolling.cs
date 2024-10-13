@@ -17,12 +17,13 @@ public class DemonPatrolling : MonoBehaviour
 
     [SerializeField] float locationDelayChange = 5f;
 
+    private Animator _animator;
     private float timeTracker = 0f;
     private void Awake()
     {
         //if the demon has a NavMeshAgent attached to itself it will give the agent a value, if not it will create one
         agent =  GetComponent<NavMeshAgent>() != null ? GetComponent<NavMeshAgent>(): gameObject.AddComponent<NavMeshAgent>(); 
-        
+        _animator = GetComponentInChildren<Animator>(); 
         //Gives the demonFOVRef a value
         demonFOVRef = this.gameObject.GetComponent<DemonFOV>();
 
@@ -58,12 +59,15 @@ public class DemonPatrolling : MonoBehaviour
         if(timeTracker < incomingDelay && agent.remainingDistance !< .5f)
         {
             timeTracker += Time.deltaTime;
+            _animator.SetBool("isEating", true);
             return;
         }
         else 
         {
             if ((!agent.pathPending && agent.remainingDistance < .5f) && !demonFOVRef.canSeePlayer) //IF the demon's path isn't pending and is close to location move to next point
             {
+                _animator.SetBool("isEating", false);
+                _animator.SetBool("isMoving", true);
                 timeTracker = 0f;
                 agent.destination = incomingLocations[patrolIndex].position;
                 patrolIndex = (patrolIndex + 1) % incomingLocations.Count;
@@ -85,7 +89,10 @@ public class DemonPatrolling : MonoBehaviour
         {
             if (demonFOVRef.canSeePlayer)
             {
-                agent.destination = demonFOVRef.playerRef.transform.position;               
+                _animator.SetTrigger("touchedPlayer");
+            
+            agent.destination = demonFOVRef.playerRef.transform.position;
+                
             }
             else
             {
@@ -97,4 +104,6 @@ public class DemonPatrolling : MonoBehaviour
             return;
         }
     }
+
+   
 }

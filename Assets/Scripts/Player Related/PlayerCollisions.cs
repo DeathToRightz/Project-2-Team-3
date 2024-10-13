@@ -6,7 +6,7 @@ public class PlayerCollisions : MonoBehaviour
 {
     LayerMask _groundLayerMask;
     private const float GroundRaycastDistance = 1.1f;
-    private FadeTransition _fadeTransition;
+    public FadeTransition _fadeTransition;
     
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,7 @@ public class PlayerCollisions : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Touch");
             if (_fadeTransition != null)
             {
                 StartCoroutine(OnCollisionWithEnemy());
