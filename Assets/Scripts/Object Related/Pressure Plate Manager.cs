@@ -30,8 +30,6 @@ public class PressurePlateManager : MonoBehaviour
         for (int i = 0; i <= plates.Count - 1; i++)
         {
             plateDownChecker[i] = plates[i].GetComponent<PressurePlates>().plateIsDown;
-
-
         }
         checkPlateEvent.Invoke(plateDownChecker);
     }
