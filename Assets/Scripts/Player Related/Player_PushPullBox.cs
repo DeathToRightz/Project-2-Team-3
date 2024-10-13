@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 [RequireComponent(typeof(PlayerMovement))]
 public class Player_PushPullBox : MonoBehaviour
 {
+    private PlayerMovement _playerMovement;
     private PlayerInput _playerInput;
     private Rigidbody _rb;
     private Collider _collider;
@@ -13,17 +15,23 @@ public class Player_PushPullBox : MonoBehaviour
     private bool _isAttached;
     private Ray _ray;
     public bool IsAttached => _isAttached;
+    private Animator _animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        _playerMovement = GetComponent<PlayerMovement>();
+        _animator = GetComponentInChildren<Animator>();
         _collider = GetComponent<Collider>();
         _rb = GetComponent<Rigidbody>();
         _playerInput = GetComponent<PlayerMovement>().PlayerInput;
         _playerInput.PlayerActionMap.Grab.started += _ => JointAttachDetach();
         
     }
-
+    private void Update()
+    {
+        _animator.SetInteger("grabbingDirection", CheckMovementDirection());
+    }
     private void JointAttachDetach()
     {
         if (_joint == null) return;
@@ -31,13 +39,18 @@ public class Player_PushPullBox : MonoBehaviour
         
         if (!_isAttached)
         {
+            Debug.Log("Attach");
+            _animator.SetBool("isGrabbing", true);
+           
             _isAttached = true;
             _joint.gameObject.GetComponent<SphereCollider>().enabled = false;
-            _joint.connectedBody = _rb;
+            _joint.connectedBody = _rb;           
             FreezePositionOnAttachment();
         }
         else
         {
+            Debug.Log("Detach");
+           _animator.SetBool("isGrabbing", false);
             _isAttached = false;
             _joint.gameObject.GetComponent<SphereCollider>().enabled = true;
             _joint.connectedBody = null;
@@ -95,4 +108,11 @@ public class Player_PushPullBox : MonoBehaviour
     }
         
 #endif
+
+
+    private int CheckMovementDirection()
+    {
+        Vector3 movementDirectionInput = new Vector3(Input.GetAxis("Horizontal"),0, Input.GetAxis("Vertical")).normalized;
+        return (int)movementDirectionInput.z;
+    }
 }

@@ -6,11 +6,13 @@ using UnityEngine;
 
 public class PlayerRunnerMovement : MonoBehaviour
 {
+    [SerializeField,Tooltip("This determines how much to slow down the walking animation when hit")] float reducedAnimationSpeed = .5f;
     private Rigidbody _rb;
     private PlayerInput _playerInput;
     private float _targetXPosition;
     private float _forwardSpeed;
     private bool _canBeDamaged = true;
+    private Animator _animator;
     [SerializeField] private float _initialSpeed, _sidewaysSpeed;
     [SerializeField] private Transform _laneCenter, _laneLeft, _laneRight;
     
@@ -25,6 +27,8 @@ public class PlayerRunnerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _animator = GetComponentInChildren<Animator>();
+        _animator.SetBool("isMoving", true);
         _rb = GetComponent<Rigidbody>();
         _playerInput = new PlayerInput();
         _playerInput.PlayerRunerActionMap.Enable();
@@ -85,6 +89,7 @@ public class PlayerRunnerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("RunnerObstacle"))
         {
             if(_canBeDamaged) StartCoroutine(ReduceSpeedForSeconds(2, 2));
+            
         }
     }
     
@@ -92,9 +97,11 @@ public class PlayerRunnerMovement : MonoBehaviour
     {
         _canBeDamaged = false;
         _forwardSpeed = Mathf.Clamp(_forwardSpeed - reductionAmount, 1, _forwardSpeed);
+        _animator.speed = reducedAnimationSpeed;
         //do other feedback (animation, etc)
         yield return new WaitForSeconds(reductionTime);
         _forwardSpeed = _initialSpeed;
+        _animator.speed = 1;
         _canBeDamaged = true;
     }
 }

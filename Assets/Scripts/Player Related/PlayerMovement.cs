@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerCollisions))]
@@ -41,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(_animator);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         if(SoundManager.instance != null)
@@ -84,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         forward = forward.normalized;
         right = right.normalized;
 
+        
         _currentVelocity = Mathf.MoveTowards(_currentVelocity, _stats.maxSpeed, _stats.acceleration * Time.fixedDeltaTime);
         CheckMaxSpeedModifier();
         _moveDirection = (forward * _verticalInput + right * _horizontalInput) * _currentVelocity; 
@@ -91,12 +94,13 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplyMovement()
     {
+       
         _rb.velocity = new Vector3(_moveDirection.x, _rb.velocity.y, _moveDirection.z);
 
-        if (_moveDirection == Vector3.zero || _playerPushScript.IsAttached) return;
-
-        if(_moveDirection.z > 1) { Debug.Log("Moving forward"); }else if(_moveDirection.z < -1) { Debug.Log("Moving back"); }
+        if (_moveDirection == Vector3.zero || _playerPushScript.IsAttached) { _animator.SetBool("isMoving", false); return; }
+        _animator.SetBool("isMoving", true);
         
+
         //rotate player towards direction of movement
         Quaternion targetRotation = Quaternion.LookRotation(_moveDirection, Vector3.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _stats.rotationSpeed * Time.deltaTime);
@@ -110,6 +114,8 @@ public class PlayerMovement : MonoBehaviour
         if (_playerPushScript.IsAttached)
         {
             _currentVelocity = Mathf.Clamp(_currentVelocity, 0, _stats.maxSpeedWithPushable);
+
+          
         }
         else if (_isAffectedByWind)
         {
