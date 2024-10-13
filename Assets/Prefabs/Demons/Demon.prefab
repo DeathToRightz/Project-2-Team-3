@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 333020791462105689}
   - component: {fileID: 2604212529204027245}
   - component: {fileID: 2248494245762359807}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Demon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4284671413858338939}
   - component: {fileID: 6974970085517832405}
   - component: {fileID: 8077007760595257962}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DemonMesh
   m_TagString: Enemy
   m_Icon: {fileID: 0}
