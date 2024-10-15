@@ -30,6 +30,7 @@ public class Player_PushPullBox : MonoBehaviour
     }
     private void Update()
     {
+        //CheckMovementDirection();
         _animator.SetInteger("grabbingDirection", CheckMovementDirection());
     }
     private void JointAttachDetach()
@@ -113,6 +114,9 @@ public class Player_PushPullBox : MonoBehaviour
     private int CheckMovementDirection()
     {
         Vector3 movementDirectionInput = new Vector3(Input.GetAxis("Horizontal"),0, Input.GetAxis("Vertical")).normalized;
+       // Debug.Log($"{(int)movementDirectionInput.z}  {(int)movementDirectionInput.x}");
         return (int)movementDirectionInput.z;
+
+
     }
 }
