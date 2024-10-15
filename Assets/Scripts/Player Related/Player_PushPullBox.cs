@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 
@@ -17,6 +18,10 @@ public class Player_PushPullBox : MonoBehaviour
     public bool IsAttached => _isAttached;
     private Animator _animator;
 
+    private bool isGrabbing;
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +32,18 @@ public class Player_PushPullBox : MonoBehaviour
         _playerInput = GetComponent<PlayerMovement>().PlayerInput;
         _playerInput.PlayerActionMap.Grab.started += _ => JointAttachDetach();
         
+        
     }
     private void Update()
     {
         //CheckMovementDirection();
-        _animator.SetInteger("grabbingDirection", CheckMovementDirection());
+        //  _animator.SetInteger("grabbingDirection", CheckMovementDirection());
+        if (isGrabbing)
+        {
+           
+            _animator.SetFloat("Slope", CheckMovementDirection());
+        }
+         
     }
     private void JointAttachDetach()
     {
@@ -42,7 +54,7 @@ public class Player_PushPullBox : MonoBehaviour
         {
             Debug.Log("Attach");
             _animator.SetBool("isGrabbing", true);
-           
+            isGrabbing = true;
             _isAttached = true;
             _joint.gameObject.GetComponent<SphereCollider>().enabled = false;
             _joint.connectedBody = _rb;           
@@ -52,6 +64,7 @@ public class Player_PushPullBox : MonoBehaviour
         {
             Debug.Log("Detach");
            _animator.SetBool("isGrabbing", false);
+            isGrabbing=false;
             _isAttached = false;
             _joint.gameObject.GetComponent<SphereCollider>().enabled = true;
             _joint.connectedBody = null;
@@ -111,12 +124,24 @@ public class Player_PushPullBox : MonoBehaviour
 #endif
 
 
-    private int CheckMovementDirection()
+    private float CheckMovementDirection()
     {
-        Vector3 movementDirectionInput = new Vector3(Input.GetAxis("Horizontal"),0, Input.GetAxis("Vertical")).normalized;
-       // Debug.Log($"{(int)movementDirectionInput.z}  {(int)movementDirectionInput.x}");
-        return (int)movementDirectionInput.z;
+
+        Vector3 playerVelocity = _rb.velocity.normalized;
+
+        Vector3 position = transform.position;
+        Vector3 objectPosition = _joint.transform.position;
+
+        Vector3 direction = objectPosition - position;
+
+        float animationDirection = Vector3.Dot(direction.normalized, playerVelocity);
+
+      return  Remap(animationDirection, -1, 1, 0, 1);
+    }
 
 
+    public float Remap(float v, float minOld, float maxOld, float minNew, float maxNew)
+    {
+        return minNew + (v - minOld) * (maxNew - minNew) / (maxOld - minOld);
     }
 }
