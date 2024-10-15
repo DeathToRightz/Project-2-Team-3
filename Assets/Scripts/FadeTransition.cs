@@ -25,7 +25,7 @@ public class FadeTransition : MonoBehaviour
     }
     private void Start()
     {
-        FadeOut(1);
+        //FadeOut(1);
         SceneManager.activeSceneChanged += CheckForDifferentScene;
     }
 
