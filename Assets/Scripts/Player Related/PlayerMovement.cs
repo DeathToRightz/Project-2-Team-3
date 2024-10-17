@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(_animator);
+       
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         if(SoundManager.instance != null)

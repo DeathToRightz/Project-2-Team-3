@@ -10,23 +10,24 @@ public class MenuController : MonoBehaviour
     private FadeTransition fadeTransitionRef;
     private AudioSource audioSource;
     [SerializeField] private GameObject insideDoorCamera;
-    
+    private GameObject _mainThemeSound, _startGameSound;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>() != null? audioSource = GetComponent<AudioSource>() : audioSource = gameObject.AddComponent<AudioSource>(); //If SoundManager object doesn't have a AudioSource                                                                                                                                                             //Creates one
         fadeTransitionRef = FindFirstObjectByType<FadeTransition>();
-        Debug.Log(fadeTransitionRef);
+       
     }
     
     private void Start()
     {
         fadeTransitionRef.FadeOut(3);
-        SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Main Theme"));
+      _mainThemeSound =   SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Main Theme"));
     }
 
     public void OnClickPlay()
-    {   
-        SoundManager.instance.PlaySound(transform.position,SoundManager.instance.FindSoundInfoByName("Start Game"));
+    {
+        SoundManager.instance.soundPool.Release(_mainThemeSound);
+      _startGameSound =  SoundManager.instance.PlaySound(transform.position,SoundManager.instance.FindSoundInfoByName("Start Game"));
         insideDoorCamera.SetActive(true);
         fadeTransitionRef.LoadSceneWithFade(3,"New Level1");
     }

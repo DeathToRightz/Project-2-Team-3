@@ -41,6 +41,7 @@ public class SoundManager : MonoBehaviour
     {
       
         return m_sounds.Find(sound => sound.Name == name);
+        
     }  //Nope
 #nullable disable
     public GameObject PlaySound(Vector3 location, SoundInfo soundInfo)
@@ -223,10 +224,7 @@ public class SoundManager : MonoBehaviour
         }
     }
     private void CheckForDifferentScene(Scene currentScene, Scene newScene)
-    {
-        
-        soundPool.Clear();
-
-         
+    {       
+        soundPool.Clear();         
     }
 }

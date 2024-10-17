@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19350728, g: 0.19059847, b: 0.18974136, a: 1}
+  m_IndirectSpecularColor: {r: 0.19350687, g: 0.19059813, b: 0.1897413, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1159,50 +1159,6 @@ PrefabInstance:
     - target: {fileID: 1931102538225276915, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
       propertyPath: m_Name
       value: Sound Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271206882303152435, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
-      propertyPath: m_sounds.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271206882303152435, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
-      propertyPath: m_sounds.Array.data[5].Name
-      value: Start Game
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271206882303152435, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
-      propertyPath: m_sounds.Array.data[6].Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271206882303152435, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
-      propertyPath: m_sounds.Array.data[6].Name
-      value: Main Theme
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271206882303152435, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
-      propertyPath: m_sounds.Array.data[5]._pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271206882303152435, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
-      propertyPath: m_sounds.Array.data[6]._pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271206882303152435, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
-      propertyPath: m_sounds.Array.data[5]._volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271206882303152435, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
-      propertyPath: m_sounds.Array.data[6]._volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8271206882303152435, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
-      propertyPath: m_sounds.Array.data[5].AudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: d604812dec3cfb94f8e0469ddcfcbba5, type: 3}
-    - target: {fileID: 8271206882303152435, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
-      propertyPath: m_sounds.Array.data[6].AudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: b1be176b4e3ba444f862d2b393b4804e, type: 3}
-    - target: {fileID: 8271206882303152435, guid: ef0925ea75d1765479dbebe9a7e0e14b, type: 3}
-      propertyPath: m_sounds.Array.data[6].PlayOnAwake
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
