@@ -9,7 +9,8 @@ public class FadeTransition : MonoBehaviour
 {
     private static FadeTransition _instance;
     [SerializeField, Tooltip("Image to be fade in and out.")] private Image _fadeImage;
-    
+    private float _currentImageAlpha;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -43,10 +44,24 @@ public class FadeTransition : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-    public void LoadScene(int buildIndex)
+    
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(buildIndex);
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void LoadSceneWithFade(float fadeDelay, string nameOfScene)
+    {
+        StartCoroutine(DelaySceneTransitions(fadeDelay, nameOfScene));
+    }
+    
+    private IEnumerator DelaySceneTransitions(float fadeDelay, string nameOfScene)
+    {
+        FadeIn(fadeDelay);
+        yield return new WaitUntil((() => Math.Abs(_currentImageAlpha - 1) < .0001));
+        SceneManager.LoadScene(nameOfScene);
+        yield return new WaitUntil(() => SceneManager.GetSceneByName(nameOfScene).isLoaded && Math.Abs(_currentImageAlpha - 1) < .0001);
+        FadeOut(fadeDelay);
     }
 
     private IEnumerator SetAlpha(float alphaValue, float setTimer)
@@ -58,6 +73,7 @@ public class FadeTransition : MonoBehaviour
         {
             newColor.a = Mathf.MoveTowards(newColor.a, alphaValue, Time.deltaTime / setTimer);
             _fadeImage.color = newColor;
+            _currentImageAlpha = newColor.a;
             yield return new WaitForEndOfFrame();
         }
     }

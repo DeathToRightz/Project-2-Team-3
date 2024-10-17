@@ -18,16 +18,8 @@ public class ToLevel3 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(OnCollisionWithPlayer());
+            _fadeTransition.LoadSceneWithFade(1, "Level2");
             Debug.LogWarning("Remember change to Level 3 scene");
         }
-    }
-    
-    private IEnumerator OnCollisionWithPlayer()
-    {
-        _fadeTransition.FadeIn(1);
-        yield return new WaitForSeconds(1);
-        _fadeTransition.LoadScene(SceneManager.GetSceneByName("Level2").buildIndex);
-        _fadeTransition.FadeOut(1);
     }
 }
