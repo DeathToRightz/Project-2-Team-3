@@ -2132,6 +2132,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5741247505990532966, guid: e3948031c36b0df46bbaefd0298c59ab, type: 3}
+      propertyPath: m_ClearFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741247505990532966, guid: e3948031c36b0df46bbaefd0298c59ab, type: 3}
       propertyPath: field of view
       value: 60.000004
       objectReference: {fileID: 0}
@@ -2695,7 +2699,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f38b48ef9600af74699ec6f3478bcd73, type: 2}
+  - {fileID: 2100000, guid: 636fd2eeb7c653047b7999b456d82cde, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
