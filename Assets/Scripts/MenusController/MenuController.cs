@@ -9,7 +9,7 @@ public class MenuController : MonoBehaviour
 {
     private FadeTransition fadeTransitionRef;
     private AudioSource audioSource;
-    [SerializeField] private GameObject insideDoorCamera;
+    [SerializeField] private GameObject _insideDoorCamera, _mainMenuPanel;
     private GameObject _mainThemeSound, _startGameSound;
     private void Awake()
     {
@@ -28,7 +28,8 @@ public class MenuController : MonoBehaviour
     {
         SoundManager.instance.soundPool.Release(_mainThemeSound);
       _startGameSound =  SoundManager.instance.PlaySound(transform.position,SoundManager.instance.FindSoundInfoByName("Start Game"));
-        insideDoorCamera.SetActive(true);
+        _insideDoorCamera.SetActive(true);
+        _mainMenuPanel.SetActive(false);
         fadeTransitionRef.LoadSceneWithFade(3,"New Level1");
     }
     
