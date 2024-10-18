@@ -5671,6 +5671,79 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.665728, y: 1.600198, z: 1.0235019}
   m_Center: {x: -0.00000023841858, y: 0, z: 0}
+--- !u!1001 &809839602
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 167900542962988771, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db8a795e675ed144bab90a08a00c56a9, type: 2}
+    - target: {fileID: 2725191217808705908, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725191217808705908, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725191217808705908, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 22.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725191217808705908, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725191217808705908, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725191217808705908, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725191217808705908, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725191217808705908, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725191217808705908, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2725191217808705908, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3357999039612244942, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_Name
+      value: Obelisk 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904298269829116810, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db8a795e675ed144bab90a08a00c56a9, type: 2}
+    - target: {fileID: 6095560178096541351, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db8a795e675ed144bab90a08a00c56a9, type: 2}
+    - target: {fileID: 7925941086561577482, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e2a7675b32087f148822bbc4c3afb32f, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6a474ed076075e445abb44084aa0fc0b, type: 3}
 --- !u!1 &814955760
 GameObject:
   m_ObjectHideFlags: 0
@@ -14796,3 +14869,4 @@ SceneRoots:
   - {fileID: 312897713}
   - {fileID: 1723506612}
   - {fileID: 2126024581}
+  - {fileID: 809839602}
