@@ -17,10 +17,9 @@ public class Player_PushPullBox : MonoBehaviour
     private Ray _ray;
     public bool IsAttached => _isAttached;
     private Animator _animator;
-
     private bool isGrabbing;
-
-    private float _anyInputRef;
+   
+    private GameObject _moveStoneSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +39,8 @@ public class Player_PushPullBox : MonoBehaviour
         if (isGrabbing)
         {           
             _animator.SetFloat("MoveDirection", CheckMovementDirection());
-        }
-         
+            if (SoundManager.instance) { PlayStoneMoveSFX(_playerMovement._anyInput); }
+        }        
     }
     private void JointAttachDetach()
     {
@@ -141,5 +140,30 @@ public class Player_PushPullBox : MonoBehaviour
     public float Remap(float v, float minOld, float maxOld, float minNew, float maxNew)
     {
         return minNew + (v - minOld) * (maxNew - minNew) / (maxOld - minOld);
+    }
+
+
+    private void PlayStoneMoveSFX(float incomingMoveDirection)
+    {
+        if (_moveStoneSFX == null || !_moveStoneSFX.activeSelf)
+        {
+            switch (incomingMoveDirection)
+            {
+                case -1:
+                    _moveStoneSFX = SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Pull Stone"));
+                    Debug.Log("pull");
+                    break;
+                case 1:
+                    _moveStoneSFX = SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Push Stone"));
+                    Debug.Log("push");
+                    break;
+            }
+        }
+        else if((_moveStoneSFX != null || _moveStoneSFX.activeSelf) && _playerMovement._anyInput == 0) 
+        {
+            SoundManager.instance.soundPool.Release(_moveStoneSFX);
+        }
+        
+        
     }
 }
