@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerInput PlayerInput => _playerInput;
 
     private Animator _animator;
+    public float _anyInput;
     
     // Start is called before the first frame update
     void Awake()
@@ -61,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         _horizontalInput = _playerInput.PlayerActionMap.Movement.ReadValue<Vector2>().x;
         _verticalInput = _playerInput.PlayerActionMap.Movement.ReadValue<Vector2>().y;
         _grounded = _collisions.GroundCollisionCheck();
+        
     }
 
     private void FixedUpdate()
@@ -74,7 +76,9 @@ public class PlayerMovement : MonoBehaviour
         if (_horizontalInput == 0 && _verticalInput == 0)
         {
             _currentVelocity = Mathf.MoveTowards(_currentVelocity, 0, _stats.groundDeceleration * Time.fixedDeltaTime);
-            _moveDirection = _moveDirection.normalized * _currentVelocity;
+            _moveDirection = _moveDirection.normalized * _currentVelocity;                     
+            _anyInput = 0;
+            _animator.SetInteger("movementInput", (int)_anyInput);
             return;
         }
 
@@ -89,7 +93,11 @@ public class PlayerMovement : MonoBehaviour
         
         _currentVelocity = Mathf.MoveTowards(_currentVelocity, _stats.maxSpeed, _stats.acceleration * Time.fixedDeltaTime);
         CheckMaxSpeedModifier();
-        _moveDirection = (forward * _verticalInput + right * _horizontalInput) * _currentVelocity; 
+        _moveDirection = (forward * _verticalInput + right * _horizontalInput) * _currentVelocity;
+        //Adds the x and z input directions to one float to check if player is inputing any movement
+        _anyInput = _moveDirection.x + _moveDirection.z;
+        _anyInput = Mathf.Clamp(_anyInput,-1,1);
+        _animator.SetInteger("movementInput",(int)_anyInput);
     }
 
     void ApplyMovement()
@@ -98,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = new Vector3(_moveDirection.x, _rb.velocity.y, _moveDirection.z);
 
         if (_moveDirection == Vector3.zero || _playerPushScript.IsAttached) { _animator.SetBool("isMoving", false); return; }
-        _animator.SetBool("isMoving", true);
+         _animator.SetBool("isMoving", true);
         
 
         //rotate player towards direction of movement

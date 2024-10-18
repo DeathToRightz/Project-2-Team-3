@@ -20,7 +20,7 @@ public class Player_PushPullBox : MonoBehaviour
 
     private bool isGrabbing;
 
-   
+    private float _anyInputRef;
 
     // Start is called before the first frame update
     void Start()
@@ -32,16 +32,14 @@ public class Player_PushPullBox : MonoBehaviour
         _playerInput = GetComponent<PlayerMovement>().PlayerInput;
         _playerInput.PlayerActionMap.Grab.started += _ => JointAttachDetach();
         
+       
         
     }
     private void Update()
     {
-        //CheckMovementDirection();
-        //  _animator.SetInteger("grabbingDirection", CheckMovementDirection());
         if (isGrabbing)
-        {
-           
-            _animator.SetFloat("Slope", CheckMovementDirection());
+        {           
+            _animator.SetFloat("MoveDirection", CheckMovementDirection());
         }
          
     }
