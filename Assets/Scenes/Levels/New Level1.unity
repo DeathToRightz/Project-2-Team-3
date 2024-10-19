@@ -7418,7 +7418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1076760183
 Transform:
   m_ObjectHideFlags: 0
@@ -7429,7 +7429,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.9347969, y: -10.403192, z: 20.701366}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6894, y: 1.6894, z: 1.6894}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 940265420}
@@ -8959,6 +8959,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.07
       objectReference: {fileID: 0}
+    - target: {fileID: 728722357129144537, guid: cdaafce4edff6c24388974458345cc6a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bc9c1de8a569e3f4e86ee04b10e558ff, type: 2}
     - target: {fileID: 1479622802846153677, guid: cdaafce4edff6c24388974458345cc6a, type: 3}
       propertyPath: _mainCam
       value: 
