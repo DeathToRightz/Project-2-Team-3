@@ -154,6 +154,7 @@ MonoBehaviour:
   _stats: {fileID: 11400000, guid: bd8311bc17277a547af21f65892c5d50, type: 2}
   _mainCam: {fileID: 0}
   _showDebug: 1
+  _anyInput: 0
 --- !u!114 &7326716255051184404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca0e8512879c5741abeb1a84e085fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fadeTransition: {fileID: 0}
 --- !u!1001 &203709351696885359
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,6 +228,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 634806938357468854, guid: 5e682d1322660144ba56be91a23398a2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c6d408affb062846b82000e4ebc5d52, type: 2}
     - target: {fileID: 919132149155446097, guid: 5e682d1322660144ba56be91a23398a2, type: 3}
       propertyPath: m_Name
       value: PlayerRigged
