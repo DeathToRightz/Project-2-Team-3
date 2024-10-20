@@ -156,6 +156,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d1e2379bbbade7642ac7165a1d2fd240, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c135dec781f0ff478575d5fe9fbe695, type: 2}
     - target: {fileID: 919132149155446097, guid: d1e2379bbbade7642ac7165a1d2fd240, type: 3}
       propertyPath: m_Name
       value: Game2Brick_L

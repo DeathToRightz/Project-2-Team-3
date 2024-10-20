@@ -231,7 +231,7 @@ PrefabInstance:
     - target: {fileID: 634806938357468854, guid: 5e682d1322660144ba56be91a23398a2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9c6d408affb062846b82000e4ebc5d52, type: 2}
+      objectReference: {fileID: 2100000, guid: 47faaeae9d6e0ab4da36e1f15540274a, type: 2}
     - target: {fileID: 919132149155446097, guid: 5e682d1322660144ba56be91a23398a2, type: 3}
       propertyPath: m_Name
       value: PlayerRigged
@@ -263,7 +263,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014102950149905214}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 5e682d1322660144ba56be91a23398a2, type: 3}
   m_Controller: {fileID: 9100000, guid: 02e063a6d7525a44c99b5a091ad2d28d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
