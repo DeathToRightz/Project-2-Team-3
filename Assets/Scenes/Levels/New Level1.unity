@@ -6294,6 +6294,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5867850414011740631, guid: fbfad6e814153fd408bbd85a1f974088, type: 3}
+      propertyPath: _meshes.Array.data[0]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 62da9ea15f164624cb64e8b05cd5177f, type: 3}
+    - target: {fileID: 5867850414011740631, guid: fbfad6e814153fd408bbd85a1f974088, type: 3}
+      propertyPath: _meshes.Array.data[1]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 9212c705b22845244a5bc44d1ce66025, type: 3}
+    - target: {fileID: 5867850414011740631, guid: fbfad6e814153fd408bbd85a1f974088, type: 3}
+      propertyPath: _meshes.Array.data[2]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 7c2c336360dd62846b6ba443490fbc21, type: 3}
+    - target: {fileID: 5867850414011740631, guid: fbfad6e814153fd408bbd85a1f974088, type: 3}
+      propertyPath: _meshes.Array.data[3]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 719b7ec18e3b6444a8dd9e0f6e759420, type: 3}
+    - target: {fileID: 5867850414011740631, guid: fbfad6e814153fd408bbd85a1f974088, type: 3}
+      propertyPath: _meshes.Array.data[4]
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 5e4aaf7151ae2f64bb5b35898066d271, type: 3}
     - target: {fileID: 8097898445898348835, guid: fbfad6e814153fd408bbd85a1f974088, type: 3}
       propertyPath: m_Name
       value: PushableRock
@@ -14213,7 +14233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9136593148514548369, guid: 7a66b1d0b7b5dc14ca5164de35b0838f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65876305
+      value: 0.771
       objectReference: {fileID: 0}
     - target: {fileID: 9136593148514548369, guid: 7a66b1d0b7b5dc14ca5164de35b0838f, type: 3}
       propertyPath: m_LocalPosition.z
