@@ -37,6 +37,8 @@ public class MenuController : MonoBehaviour
         else
         {
             _endGameSound = SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("End Theme"));
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
         
     }
