@@ -42,7 +42,7 @@ public class MenuController : MonoBehaviour
     public void OnClickCredits()
     {
         RandomButtonSFX();
-        fadeTransitionRef.LoadSceneWithFade(2,"HelpMenu");
+        fadeTransitionRef.LoadSceneWithFade(2,"CreditsMenu");
     }
     
     public void OnClickBack()

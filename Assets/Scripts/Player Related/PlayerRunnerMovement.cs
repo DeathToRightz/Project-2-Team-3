@@ -24,6 +24,11 @@ public class PlayerRunnerMovement : MonoBehaviour
     }
     private PlayerRunnerLanes _currentRunnerLane;
 
+    private void OnDisable()
+    {
+        _playerInput.Disable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

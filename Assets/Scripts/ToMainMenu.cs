@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class ToLevel3 : MonoBehaviour
+public class ToMainMenu : MonoBehaviour
 {
     private FadeTransition _fadeTransition;
     
@@ -18,7 +16,7 @@ public class ToLevel3 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _fadeTransition.LoadSceneWithFade(1, "Level3");
+            _fadeTransition.LoadSceneWithFade(1, "MainMenu");
         }
     }
 }
