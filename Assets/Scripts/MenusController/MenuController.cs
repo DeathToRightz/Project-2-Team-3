@@ -10,7 +10,16 @@ public class MenuController : MonoBehaviour
     private FadeTransition fadeTransitionRef;
     private AudioSource audioSource;
     [SerializeField] private GameObject _insideDoorCamera, _mainMenuPanel;
-    private GameObject _mainThemeSound, _startGameSound;
+    private GameObject _mainThemeSound, _startGameSound, _endGameSound;
+    private enum startOrEndingScreen
+    {
+        start,
+        end,
+
+
+    }
+    [SerializeField] startOrEndingScreen whichMenuIsThis;
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>() != null? audioSource = GetComponent<AudioSource>() : audioSource = gameObject.AddComponent<AudioSource>(); //If SoundManager object doesn't have a AudioSource                                                                                                                                                             //Creates one
@@ -21,7 +30,15 @@ public class MenuController : MonoBehaviour
     private void Start()
     {
         fadeTransitionRef.FadeOut(3);
-      _mainThemeSound =   SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Main Theme"));
+        if (whichMenuIsThis == startOrEndingScreen.start)
+        {
+            _mainThemeSound = SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Main Theme"));
+        }
+        else
+        {
+            _endGameSound = SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("End Theme"));
+        }
+        
     }
 
     public void OnClickPlay()

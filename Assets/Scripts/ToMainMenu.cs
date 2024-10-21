@@ -16,7 +16,7 @@ public class ToMainMenu : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _fadeTransition.LoadSceneWithFade(1, "MainMenu");
+            _fadeTransition.LoadSceneWithFade(1, "End Level");
         }
     }
 }

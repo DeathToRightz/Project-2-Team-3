@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19078168, g: 0.009091311, b: 0.0003325626, a: 1}
+  m_IndirectSpecularColor: {r: 0.19076616, g: 0.009089467, b: 0.0003324565, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -597,7 +597,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1f5d0e7c03ca42749b0e034e7c8b6c10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1496,7 +1496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &239141160
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1564,8 +1564,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239141159}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.37231117, y: -0.4747326, z: 0.23160897, w: 0.76313215}
-  m_LocalPosition: {x: 14.154614, y: 18.862675, z: 38.091496}
+  m_LocalRotation: {x: 0.20737158, y: -0.37692547, z: 0.08696983, w: 0.89853245}
+  m_LocalPosition: {x: 12.790423, y: 14.356272, z: -13.687851}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5346,7 +5346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000531109208796542, guid: e3948031c36b0df46bbaefd0298c59ab, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8535,7 +8535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5076995765563421280, guid: cdaafce4edff6c24388974458345cc6a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5165110907639515188, guid: cdaafce4edff6c24388974458345cc6a, type: 3}
       propertyPath: m_Layer
@@ -9725,7 +9725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4510006506237392949, guid: be8bbb615a4d60c4292961d2c1ab39be, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
