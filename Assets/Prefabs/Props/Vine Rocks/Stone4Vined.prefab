@@ -61,6 +61,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: b5310f50f47baea4d92ec1524531bc20, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b5310f50f47baea4d92ec1524531bc20, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 271a21683fa720b4b8676ad34a097218, type: 2}
@@ -68,14 +72,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone4Vined
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5754084199372789682, guid: b5310f50f47baea4d92ec1524531bc20, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: b5310f50f47baea4d92ec1524531bc20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6805083148972300736}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b5310f50f47baea4d92ec1524531bc20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1631135645910331638}
   m_SourcePrefab: {fileID: 100100000, guid: b5310f50f47baea4d92ec1524531bc20, type: 3}
+--- !u!4 &2498733933795843221 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b5310f50f47baea4d92ec1524531bc20, type: 3}
+  m_PrefabInstance: {fileID: 2677372641276394366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3019269833631843887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b5310f50f47baea4d92ec1524531bc20, type: 3}
@@ -102,3 +115,65 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.1866124
   m_Center: {x: -0.010369062, y: -0.013576806, z: -0.0093894005}
+--- !u!1001 &6267451512266107796
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2498733933795843221}
+    m_Modifications:
+    - target: {fileID: 615575741473927764, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615575741473927764, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615575741473927764, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615575741473927764, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 615575741473927764, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615575741473927764, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615575741473927764, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615575741473927764, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615575741473927764, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 615575741473927764, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968813116193649521, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+      propertyPath: m_Name
+      value: VinedStone4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+--- !u!4 &6805083148972300736 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 615575741473927764, guid: 3778943c055e23e4a83ef96ff5600fad, type: 3}
+  m_PrefabInstance: {fileID: 6267451512266107796}
+  m_PrefabAsset: {fileID: 0}
