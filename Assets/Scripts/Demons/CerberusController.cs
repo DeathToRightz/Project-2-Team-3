@@ -11,6 +11,10 @@ public class CerberusController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        if (SoundManager.instance)
+        {
+            SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Cerburus"));
+        }
     }
 
     // Update is called once per frame
