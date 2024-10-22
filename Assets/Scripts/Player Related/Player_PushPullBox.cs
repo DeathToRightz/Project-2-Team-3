@@ -45,9 +45,8 @@ public class Player_PushPullBox : MonoBehaviour
     private void JointAttachDetach()
     {
         if (_joint == null) return;
-        if (!GameObjectRaycastCheck()) return;
         
-        if (!_isAttached)
+        if (GameObjectRaycastCheck() && !_isAttached)
         {
             Debug.Log("Attach");
             _animator.SetBool("isGrabbing", true);
@@ -57,7 +56,7 @@ public class Player_PushPullBox : MonoBehaviour
             _joint.connectedBody = _rb;           
             FreezePositionOnAttachment();
         }
-        else
+        else if(_isAttached)
         {
             Debug.Log("Detach");
            _animator.SetBool("isGrabbing", false);
