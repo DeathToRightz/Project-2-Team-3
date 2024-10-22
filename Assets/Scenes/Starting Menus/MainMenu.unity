@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19076616, g: 0.009089467, b: 0.0003324565, a: 1}
+  m_IndirectSpecularColor: {r: 0.19078168, g: 0.009091311, b: 0.0003325626, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -170,6 +170,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &66505144
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5861866458952566216, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
+      propertyPath: m_Name
+      value: DevCheats
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840330696526292704, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 21.175535
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840330696526292704, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -14.532219
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840330696526292704, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 59.565723
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840330696526292704, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840330696526292704, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840330696526292704, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840330696526292704, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840330696526292704, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840330696526292704, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840330696526292704, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f0027a7c7acf19248ae6ee98f1fb2ce8, type: 3}
 --- !u!1 &224347271
 GameObject:
   m_ObjectHideFlags: 3
@@ -745,7 +802,6 @@ GameObject:
   m_Component:
   - component: {fileID: 732741052}
   - component: {fileID: 732741051}
-  - component: {fileID: 732741053}
   m_Layer: 0
   m_Name: background Music
   m_TagString: Untagged
@@ -864,18 +920,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &732741053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 732741050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67da83b3709418f4fb724c78120889ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &761003840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,3 +2673,4 @@ SceneRoots:
   - {fileID: 1808834461}
   - {fileID: 1627466763}
   - {fileID: 732741052}
+  - {fileID: 66505144}

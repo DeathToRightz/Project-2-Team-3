@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Starting Menus/MainMenu.unity
     guid: 9e8fbe1a8b314894e91cd2743395104d
   - enabled: 1
-    path: Assets/Scenes/Starting Menus/CreditsMenu.unity
-    guid: a9dfa87cb0a06b84fbdd3c5766641b52
-  - enabled: 1
-    path: Assets/Scenes/Starting Menus/HelpMenu.unity
-    guid: 24519b07e545f624a9d2841168783818
-  - enabled: 1
     path: Assets/Scenes/Levels/New Level1.unity
     guid: 97f52f71a51c3f94781662c48595c617
   - enabled: 1
@@ -26,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/End Level.unity
     guid: be7821212f677104299b37c65226fb0c
+  - enabled: 1
+    path: Assets/Scenes/Starting Menus/CreditsMenu.unity
+    guid: a9dfa87cb0a06b84fbdd3c5766641b52
+  - enabled: 1
+    path: Assets/Scenes/Starting Menus/HelpMenu.unity
+    guid: 24519b07e545f624a9d2841168783818
   m_configObjects: {}
