@@ -9,43 +9,30 @@ public class MenuController : MonoBehaviour
 {
     private FadeTransition fadeTransitionRef;
     private AudioSource audioSource;
-    [SerializeField] private GameObject _insideDoorCamera, _mainMenuPanel;
-    private GameObject _mainThemeSound, _startGameSound, _endGameSound;
-    private enum startOrEndingScreen
-    {
-        start,
-        end,
+    [SerializeField] private GameObject _insideDoorCamera, _mainMenuPanel,_backgroundMusic;
+    private GameObject _startGameSound, _endGameSound;
 
-
-    }
-    [SerializeField] startOrEndingScreen whichMenuIsThis;
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>() != null? audioSource = GetComponent<AudioSource>() : audioSource = gameObject.AddComponent<AudioSource>(); //If SoundManager object doesn't have a AudioSource                                                                                                                                                             //Creates one
         fadeTransitionRef = FindFirstObjectByType<FadeTransition>();
-       
     }
     
     private void Start()
     {
         fadeTransitionRef.FadeOut(3);
-        if (whichMenuIsThis == startOrEndingScreen.start)
-        {
-            _mainThemeSound = SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Main Theme"));
-        }
-        else
+        if(SceneManager.GetActiveScene().name == "End Level")
         {
             _endGameSound = SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("End Theme"));
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
-        
     }
 
     public void OnClickPlay()
     {
-        SoundManager.instance.soundPool.Release(_mainThemeSound);
+       Destroy(_backgroundMusic);
       _startGameSound =  SoundManager.instance.PlaySound(transform.position,SoundManager.instance.FindSoundInfoByName("Start Game"));
         _insideDoorCamera.SetActive(true);
         _mainMenuPanel.SetActive(false);

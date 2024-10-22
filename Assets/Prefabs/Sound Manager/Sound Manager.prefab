@@ -143,7 +143,7 @@ MonoBehaviour:
     PlayOnAwake: 0
     Loop: 0
     _priority: 0
-    _volume: 1
+    _volume: 0.951
     _pitch: 1
     _stereoPan: 0
     _spatialBlend: 0
