@@ -14008,6 +14008,10 @@ PrefabInstance:
       value: Key_Pickup
       objectReference: {fileID: 0}
     - target: {fileID: 7000335021282146180, guid: 7a66b1d0b7b5dc14ca5164de35b0838f, type: 3}
+      propertyPath: _demonBird
+      value: 
+      objectReference: {fileID: 1162413431}
+    - target: {fileID: 7000335021282146180, guid: 7a66b1d0b7b5dc14ca5164de35b0838f, type: 3}
       propertyPath: _doorToOpen
       value: 
       objectReference: {fileID: 770870162}

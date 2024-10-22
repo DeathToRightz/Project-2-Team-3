@@ -15,7 +15,7 @@ public class KeyPickup : MonoBehaviour
     
     private Animation _doorAnimation;
     private PlayerMovement _player;
-    
+    [SerializeField] GameObject _demonBird;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +37,7 @@ public class KeyPickup : MonoBehaviour
                 if(meshRenderer == null) return;
                 meshRenderer.enabled = false;
             }
-
+            if (_demonBird) { _demonBird.GetComponent<DemonFOV>().enabled = false; }
             _player = other.GetComponent<PlayerMovement>();
             _player.PlayerInput.Disable();
             StartCoroutine(StartAnimation(1));
