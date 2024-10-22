@@ -23,5 +23,11 @@ public class MainmenuMusic : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    private void Update()
+    {
+        if(SceneManager.GetActiveScene().name == "New Level1")
+        {
+            Destroy(this);
+        }
+    }
 }
