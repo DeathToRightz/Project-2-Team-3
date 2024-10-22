@@ -71,16 +71,12 @@ public class DemonPatrolling : MonoBehaviour
                 timeTracker = 0f;
                 agent.destination = incomingLocations[patrolIndex].position;
                 patrolIndex = (patrolIndex + 1) % incomingLocations.Count;
-
             }
             else
             {
                 ChasePlayer(aggroTowardPlayer);
             }
-        }
-        
-
-       
+        }      
     }
  
     void ChasePlayer(bool shouldChasePlayer) //Method for chasing player, that takes a bool
@@ -96,11 +92,13 @@ public class DemonPatrolling : MonoBehaviour
             }
             else
             {
-                return;
+                _animator.SetTrigger("lostPlayer");
+                return;               
             }
         }
         else
         {
+            _animator.SetTrigger("lostPlayer");
             return;
         }
     }
