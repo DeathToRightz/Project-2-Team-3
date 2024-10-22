@@ -32,7 +32,8 @@ public class MenuController : MonoBehaviour
 
     public void OnClickPlay()
     {
-       Destroy(_backgroundMusic);
+       StartCoroutine(FadeOutBackGroundMusic());
+        //Destroy(_backgroundMusic);
       _startGameSound =  SoundManager.instance.PlaySound(transform.position,SoundManager.instance.FindSoundInfoByName("Start Game"));
         _insideDoorCamera.SetActive(true);
         _mainMenuPanel.SetActive(false);
@@ -87,5 +88,15 @@ public class MenuController : MonoBehaviour
 
         }
         return null;
+    }
+
+
+    private IEnumerator FadeOutBackGroundMusic()
+    {
+        while (_backgroundMusic.GetComponent<AudioSource>().volume != 0)
+        {
+            _backgroundMusic.GetComponent<AudioSource>().volume -= Time.deltaTime;
+            yield return null;
+        }
     }
 }

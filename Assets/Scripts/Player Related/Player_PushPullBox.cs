@@ -76,6 +76,7 @@ public class Player_PushPullBox : MonoBehaviour
     /// <returns></returns>
     private bool GameObjectRaycastCheck()
     {
+        Debug.Log("Shoot");
         _ray = new Ray(transform.position, transform.forward);
         return Physics.Raycast(_ray, _collider.bounds.extents.z + .2f, LayerMask.GetMask("Pushable"), QueryTriggerInteraction.Ignore);
     }

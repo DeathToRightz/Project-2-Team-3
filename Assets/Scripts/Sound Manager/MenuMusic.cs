@@ -27,7 +27,7 @@ public class MainmenuMusic : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "New Level1")
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }
