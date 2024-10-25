@@ -15,7 +15,8 @@ public class PlayerRunnerMovement : MonoBehaviour
     private Animator _animator;
     [SerializeField] private float _initialSpeed, _sidewaysSpeed;
     [SerializeField] private Transform _laneCenter, _laneLeft, _laneRight;
-    
+    [SerializeField] private SkinnedMeshRenderer _mesh;
+
     private enum PlayerRunnerLanes
     {
         Left,
@@ -93,8 +94,8 @@ public class PlayerRunnerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("RunnerObstacle"))
         {
-            if(_canBeDamaged) StartCoroutine(ReduceSpeedForSeconds(2, 2));
-            
+            if (!_canBeDamaged) return;
+            StartCoroutine(ReduceSpeedForSeconds(2, 2));
         }
     }
     
@@ -104,9 +105,32 @@ public class PlayerRunnerMovement : MonoBehaviour
         _forwardSpeed = Mathf.Clamp(_forwardSpeed - reductionAmount, 1, _forwardSpeed);
         _animator.speed = reducedAnimationSpeed;
         //do other feedback (animation, etc)
+        StartCoroutine(FlashMesh(reductionTime, .1f));
         yield return new WaitForSeconds(reductionTime);
         _forwardSpeed = _initialSpeed;
         _animator.speed = 1;
         _canBeDamaged = true;
+    }
+
+    /// <summary>
+    /// Turns off and on the characters mesh during the specified time.
+    /// </summary>
+    /// <param name="duration">length of flashing in seconds</param>
+    /// <param name="interval">time in between each flash</param>
+    /// <returns></returns>
+    private IEnumerator FlashMesh(float duration, float interval)
+    {
+        float elapsedTime = 0;
+        int index = 0;
+        
+        while (elapsedTime < duration)
+        {
+            _mesh.enabled = index % 2 == 0;
+            elapsedTime += interval;
+            index++;
+            yield return new WaitForSeconds(interval);
+        }
+
+        _mesh.enabled = true;
     }
 }

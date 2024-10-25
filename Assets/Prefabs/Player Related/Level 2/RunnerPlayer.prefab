@@ -104,6 +104,7 @@ MonoBehaviour:
   _laneCenter: {fileID: 0}
   _laneLeft: {fileID: 0}
   _laneRight: {fileID: 0}
+  _mesh: {fileID: 1053610689428550718}
 --- !u!114 &5971645746448727513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1597,5 +1598,10 @@ PrefabInstance:
 --- !u!4 &133662850597789027 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5e682d1322660144ba56be91a23398a2, type: 3}
+  m_PrefabInstance: {fileID: 454974453977283208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1053610689428550718 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 634806938357468854, guid: 5e682d1322660144ba56be91a23398a2, type: 3}
   m_PrefabInstance: {fileID: 454974453977283208}
   m_PrefabAsset: {fileID: 0}
