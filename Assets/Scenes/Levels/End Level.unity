@@ -259,7 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _insideDoorCamera: {fileID: 0}
   _mainMenuPanel: {fileID: 1354084230}
-  whichMenuIsThis: 1
+  _backgroundMusic: {fileID: 0}
 --- !u!4 &275629394
 Transform:
   m_ObjectHideFlags: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5efd4e3401990bd4aacd2f2758468b0f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a000fc0a88e280a4abcfb6fa76ec0dd6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
