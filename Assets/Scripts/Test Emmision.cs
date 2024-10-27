@@ -14,8 +14,8 @@ public class TestEmmision : MonoBehaviour
     {
         cubeRenderer = putCubeHere.GetComponent<Renderer>();
         colorFromMat = cubeRenderer.material.color;
-        /*colorFromMat = putCubeHere.GetComponent<MeshRenderer>().material.color;
-        newColor = colorFromMat;*/
+       // colorFromMat = putCubeHere.GetComponent<MeshRenderer>().material.color;
+        newColor = colorFromMat;
     }
 
     // Update is called once per frame
@@ -23,7 +23,9 @@ public class TestEmmision : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            cubeRenderer.material.SetColor("_BaseColor", colorFromMat *= 2);
+            Debug.Log("Press");
+           // cubeRenderer.material.SetColor("_EmissionColor",  *= 2);
+            //cubeRenderer.material.SetColor("_BaseColor", colorFromMat *= 2);
             
         }
     }

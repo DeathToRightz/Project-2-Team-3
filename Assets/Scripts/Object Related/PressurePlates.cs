@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 public class PressurePlates : MonoBehaviour
@@ -9,23 +10,34 @@ public class PressurePlates : MonoBehaviour
 
     [SerializeField, Tooltip ("Attach the Pressue Plate Manager that is holding this plate and select the SendBoolCheckToDoor")] UnityEvent checkAllPlatesEvent = new UnityEvent();
 
-    
+    [SerializeField] GameObject eyeObject;
+    private Renderer eyeRenderer;
+    private Color colorFromMat;
+ 
     public bool plateIsDown;
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-        
+        eyeRenderer = eyeObject.GetComponent<Renderer>();
+        colorFromMat = eyeRenderer.material.color;
     }
+    private void Update()
+    {
+        ChangeColorofEye(1);
+    }
+
     private void OnTriggerStay(Collider other) 
     {
-        if (other.tag != "Pushable" && plateIsDown == true) //While the object is not tagged with pushable and the plate is already down
-                                                           // don't continue 
-        {          
+        if (other.tag != "Pushable" && plateIsDown == true) //While the object is not tagged with pushable and the plate is already down                                                          // don't continue 
+        {
+                      
             return;
         }
                                                          //If everything above is true then start animation down, set plateIsDown to true
-                                                         //And invoke the event for the Pressure Plate Manager
-        animator.SetBool("Something on plate", true); 
+                                                        //And invoke the event for the Pressure Plate Manager
+        animator.SetBool("Something on plate", true);
+      
+       
         plateIsDown = true;
         checkAllPlatesEvent.Invoke();
    
@@ -41,10 +53,18 @@ public class PressurePlates : MonoBehaviour
                                                            //If everything above is true then start animation down, set plateIsDown to true
                                                            //And invoke the event for the Pressure Plate Manager
         animator.SetBool("Something on plate", false);
+       
         plateIsDown = false;
-        checkAllPlatesEvent.Invoke();
+        checkAllPlatesEvent.Invoke();         
+    }
+
+    void ChangeColorofEye(float intensity)
+    {
+        Color finalColor = Color.white * intensity;
+        //Color finalColor = Color.white;
         
-              
+        //eyeRenderer.material.SetColor("_EmissionColor", finalColor * 2 );
+        eyeRenderer.material.SetColor("_EmissionColor", finalColor);
     }
 }
 
