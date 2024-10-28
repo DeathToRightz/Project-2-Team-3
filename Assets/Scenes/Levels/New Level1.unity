@@ -687,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
       propertyPath: m_Name
-      value: EyeSymbol
+      value: Top Eye
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -958,9 +958,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 159566059}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 159566059}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -969,6 +985,22 @@ PrefabInstance:
       propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeColorBackEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeColorOverTimeEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 159566059}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -982,6 +1014,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 972511524}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeCameraViewEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -990,8 +1026,44 @@ PrefabInstance:
       value: SendBoolCheckToDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlowingEye, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlowingEye, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlowingEye, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PressurePlateManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3724,7 +3796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -4942,7 +5014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5600755554400280801, guid: e3948031c36b0df46bbaefd0298c59ab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18
+      value: -19.8
       objectReference: {fileID: 0}
     - target: {fileID: 5600755554400280801, guid: e3948031c36b0df46bbaefd0298c59ab, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4950,7 +5022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5600755554400280801, guid: e3948031c36b0df46bbaefd0298c59ab, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.4068386
+      value: 0.40683863
       objectReference: {fileID: 0}
     - target: {fileID: 5600755554400280801, guid: e3948031c36b0df46bbaefd0298c59ab, type: 3}
       propertyPath: m_LocalRotation.y
@@ -5259,17 +5331,77 @@ PrefabInstance:
     m_TransformParent: {fileID: 1167398366}
     m_Modifications:
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1064647959}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1064647959}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeColorBackEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeColorOverTimeEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1064647959}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 972511524}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeCameraViewEvent
+      objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -5279,8 +5411,44 @@ PrefabInstance:
       value: SendBoolCheckToDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlowingEye, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlowingEye, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlowingEye, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PressurePlateManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -6079,7 +6247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
       propertyPath: m_Name
-      value: EyeSymbol (1)
+      value: Middle Eye
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7669,7 +7837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6840347910038838420, guid: cdaafce4edff6c24388974458345cc6a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9
+      value: -10.8
       objectReference: {fileID: 0}
     - target: {fileID: 6840347910038838420, guid: cdaafce4edff6c24388974458345cc6a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8247,7 +8415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
       propertyPath: m_Name
-      value: EyeSymbol (2)
+      value: Bottom Eye
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8856,7 +9024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2380451028184718203, guid: be8bbb615a4d60c4292961d2c1ab39be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18
+      value: -19.8
       objectReference: {fileID: 0}
     - target: {fileID: 2380451028184718203, guid: be8bbb615a4d60c4292961d2c1ab39be, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8864,7 +9032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2380451028184718203, guid: be8bbb615a4d60c4292961d2c1ab39be, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.4068386
+      value: 0.40683863
       objectReference: {fileID: 0}
     - target: {fileID: 2380451028184718203, guid: be8bbb615a4d60c4292961d2c1ab39be, type: 3}
       propertyPath: m_LocalRotation.y
@@ -12288,7 +12456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -13075,17 +13243,77 @@ PrefabInstance:
     m_TransformParent: {fileID: 1167398366}
     m_Modifications:
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1350805488}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1350805488}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeColorBackEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeColorOverTimeEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1350805488}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 972511524}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeCameraViewEvent
+      objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -13095,8 +13323,44 @@ PrefabInstance:
       value: SendBoolCheckToDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlowingEye, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlowingEye, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlowingEye, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PressurePlateManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: ChangeCameraView.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
