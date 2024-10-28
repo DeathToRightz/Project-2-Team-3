@@ -47,6 +47,11 @@ public class PlayerRunnerMovement : MonoBehaviour
         _currentRunnerLane = PlayerRunnerLanes.Center;
         SetPositionToLane(_currentRunnerLane);
         _forwardSpeed = _initialSpeed;
+
+        if (SoundManager.instance)
+        {
+            SoundManager.instance.PlaySound(transform.position, SoundManager.instance.FindSoundInfoByName("Rain"));
+        }
     }
 
     // Update is called once per frame
