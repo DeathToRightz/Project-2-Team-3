@@ -37,7 +37,7 @@ public class KeyPickup : MonoBehaviour
                 if(meshRenderer == null) return;
                 meshRenderer.enabled = false;
             }
-            if (_demonBird) { _demonBird.GetComponent<DemonFOV>().enabled = false; }
+           
             _player = other.GetComponent<PlayerMovement>();
             _player.PlayerInput.Disable();
             StartCoroutine(StartAnimation(1));
@@ -46,6 +46,7 @@ public class KeyPickup : MonoBehaviour
 
     private IEnumerator StartAnimation(float delay)
     {
+        if (_demonBird) { _demonBird.GetComponent<DemonFOV>().enabled = false; _demonBird.GetComponent<DemonPatrolling>().enabled = false; }
         _cinematicCamera.SetActive(true);
         yield return new WaitForSeconds(delay);
         _doorAnimation.Play();
@@ -54,9 +55,11 @@ public class KeyPickup : MonoBehaviour
     
     private IEnumerator AnimationEnd(float delay)
     {
+       
         yield return new WaitForSeconds(delay);
         _cinematicCamera.SetActive(false);
         _player.PlayerInput.Enable();
+        if (_demonBird) { _demonBird.GetComponent<DemonFOV>().enabled = true; _demonBird.GetComponent<DemonPatrolling>().enabled = true; }
         Destroy(gameObject);
     }
 }

@@ -11,11 +11,12 @@ public class GlowingEye : MonoBehaviour
     public GameObject eyeCameraView;
     private float timeToGlow,timeToDarken;
     private bool darken;
+    [SerializeField] List<GameObject> numberOfBirds = new List<GameObject>();   
     private void Awake()
     {
-        _objectRenderer = GetComponent<Renderer>();           
+        _objectRenderer = GetComponent<Renderer>();
+       
     }
-
     private void Update()
     {
         if (darken)
@@ -68,10 +69,19 @@ public class GlowingEye : MonoBehaviour
 
     IEnumerator ChangeCameraView(float delay)
     {
+        for(int i = 0; i <= numberOfBirds.Count-1; i++)
+        {
+            numberOfBirds[i].GetComponent<DemonFOV>().enabled = false;
+            numberOfBirds[i].GetComponent<DemonPatrolling>().enabled = false;
+        }
         eyeCameraView.SetActive(true);
          yield return new WaitForSeconds(delay);
         eyeCameraView.SetActive(false);
-      
+        for (int i = 0; i <= numberOfBirds.Count - 1; i++)
+        {
+            numberOfBirds[i].GetComponent<DemonFOV>().enabled = true;
+            numberOfBirds[i].GetComponent<DemonPatrolling>().enabled = true;
+        }
 
     }
    
