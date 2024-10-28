@@ -33,4 +33,7 @@ public class PressurePlateManager : MonoBehaviour
         }
         checkPlateEvent.Invoke(plateDownChecker);
     }
+
+
+    
 }

@@ -9,8 +9,11 @@ public class PressurePlates : MonoBehaviour
     private Animator animator;
 
     [SerializeField, Tooltip ("Attach the Pressue Plate Manager that is holding this plate and select the SendBoolCheckToDoor")] UnityEvent checkAllPlatesEvent = new UnityEvent();
-    [SerializeField] UnityEvent<float> glowEye = new UnityEvent<float>();
-    [SerializeField] UnityEvent<float> darkEye = new UnityEvent<float>();
+    [SerializeField] UnityEvent glowEye = new UnityEvent();
+    [SerializeField] UnityEvent ChangeCameraView = new UnityEvent();
+    [SerializeField] UnityEvent darkEye = new UnityEvent();
+    private bool alreadyOn;
+   
     public bool plateIsDown;
     private void Awake()
     {
@@ -19,6 +22,18 @@ public class PressurePlates : MonoBehaviour
     private void Update()
     {
       
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Pushable" && plateIsDown == true || alreadyOn) //While the object is not tagged with pushable and the plate is already down   
+                                                            // don't continue 
+        {
+
+            return;
+        }
+        alreadyOn = true;
+        ChangeCameraView.Invoke();
     }
     private void OnTriggerStay(Collider other) 
     {
@@ -32,7 +47,8 @@ public class PressurePlates : MonoBehaviour
                                                         //And invoke the event for the Pressure Plate Manager
         animator.SetBool("Something on plate", true);    
         plateIsDown = true;
-        glowEye.Invoke(3);
+       
+        glowEye.Invoke();
         checkAllPlatesEvent.Invoke();  
     }
 
@@ -44,33 +60,14 @@ public class PressurePlates : MonoBehaviour
             return;  
         }
                                                            //If everything above is true then start animation down, set plateIsDown to true
-                                                           //And invoke the event for the Pressure Plate Manager
+        alreadyOn = false;                                                  //And invoke the event for the Pressure Plate Manager
         animator.SetBool("Something on plate", false);
         plateIsDown = false;
-        
-         darkEye.Invoke(3);
+        ChangeCameraView.Invoke();
+        darkEye.Invoke();
         checkAllPlatesEvent.Invoke();         
     }
 
-    /*void ChangeColorOverTime(float time)
-    {
-        intensity = Mathf.MoveTowards(intensity, 100,Time.deltaTime/5);
-              
-        Color finalColor = Color.white * intensity;
-
-        eyeRenderer.material.SetColor("_EmissionColor", finalColor);
-       
-
-    }*/
-
-   /* void ChangeColorofEye(float intensity)
-    {
-        Color finalColor = Color.white * intensity;
-        //Color finalColor = Color.white;
-        
-        //eyeRenderer.material.SetColor("_EmissionColor", finalColor * 2 );
-        eyeRenderer.material.SetColor("_EmissionColor", finalColor);
-    }*/
 }
 
 
