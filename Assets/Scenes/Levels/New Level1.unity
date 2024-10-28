@@ -3204,6 +3204,10 @@ PrefabInstance:
       value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: eyeObject
+      value: 
+      objectReference: {fileID: 1497246817}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: intensity
       value: 0
       objectReference: {fileID: 0}
@@ -3232,6 +3236,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -3244,12 +3252,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1497246820}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1497246820}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeColorBack
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -3284,6 +3304,10 @@ PrefabInstance:
       value: SendBoolCheckToDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GlowingEye, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GlowingEye, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -3294,6 +3318,10 @@ PrefabInstance:
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: checkAllPlatesEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PressurePlateManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
+      propertyPath: darkEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: glowEye.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3542,6 +3570,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72d3e2757ac00da4e919fcfbc7489050, type: 3}
+--- !u!1001 &703772738
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.31874466
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.0093727
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e0e7d183b1834146bd97b985a0603b6, type: 2}
+    - target: {fileID: 919132149155446097, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
+      propertyPath: m_Name
+      value: EyeSymbol
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
 --- !u!4 &706140466 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9136593148514548369, guid: 7a66b1d0b7b5dc14ca5164de35b0838f, type: 3}
@@ -4215,7 +4304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.77
+      value: -16.61
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9e791e5aa21a79c43bfbaa270fc23473, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8428,6 +8517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445fb6885fab4904f9fac1448bda35dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _glowingMat: {fileID: 2100000, guid: 67ea2e82da9400140933427976073b22, type: 2}
+  _defaultMat: {fileID: 2100000, guid: 8e0e7d183b1834146bd97b985a0603b6, type: 2}
 --- !u!1 &1510946164
 GameObject:
   m_ObjectHideFlags: 0
@@ -11486,7 +11577,7 @@ PrefabInstance:
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: eyeObject
       value: 
-      objectReference: {fileID: 1497246817}
+      objectReference: {fileID: 0}
     - target: {fileID: 1679907076991186211, guid: 6e029c813eea0164b95a777d3d653113, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -13677,3 +13768,4 @@ SceneRoots:
   - {fileID: 348353481}
   - {fileID: 1076760183}
   - {fileID: 1958229121}
+  - {fileID: 703772738}

@@ -5,20 +5,51 @@ using UnityEngine;
 public class GlowingEye : MonoBehaviour
 {
     private Renderer _objectRenderer;
-    private float intensity;
-
+    private float glowIntensity, darkIntensity;
+    public Material _glowingMat;
+    public Material _defaultMat;
+    private Color _finalColor;
+    private Color _defaultColor;
+   
+    Color currentColor;
     private void Awake()
     {
         _objectRenderer = GetComponent<Renderer>();
+        _defaultColor = _defaultMat.color;
+       // _finalColor = _glowingMat.color;
+       
     }
 
-    public void ChangeColorOverTime(float time)
+    private void Update()
     {
-        intensity = Mathf.MoveTowards(intensity, 100, Time.deltaTime / 5);
+        
+    }
+    public void ChangeColorOverTime(float timeDelay)
+    {
+        darkIntensity = 0;
+        Debug.Log(glowIntensity);
+        glowIntensity = Mathf.MoveTowards(glowIntensity, 1, Time.deltaTime / timeDelay);
 
-        Color finalColor = Color.white * intensity;
+         _finalColor = Color.white * glowIntensity;
+          Debug.Log("Going down");
+        _objectRenderer.material.SetColor("_EmissionColor", _finalColor);
+    }
 
-        _objectRenderer.material.SetColor("_EmissionColor", finalColor);
+    public void ChangeColorBack(float timeDelay)
+    {
+        glowIntensity = 0;
+        Debug.Log(darkIntensity);
+        darkIntensity = Mathf.MoveTowards(darkIntensity, 1, Time.deltaTime / timeDelay);
+
+        _finalColor = Color.black * glowIntensity;
+        Debug.Log("Going down");
+        _objectRenderer.material.SetColor("_EmissionColor", _finalColor);
 
     }
+
+    //intensity = Mathf.MoveTowards(intensity, 1, Time.deltaTime / time);
+
+           // _finalColor = Color.white * intensity;
+      //      Debug.Log("Going down");
+//_objectRenderer.material.SetColor("_EmissionColor", _finalColor);
 }

@@ -10,11 +10,16 @@ public class PressurePlates : MonoBehaviour
 
     [SerializeField, Tooltip ("Attach the Pressue Plate Manager that is holding this plate and select the SendBoolCheckToDoor")] UnityEvent checkAllPlatesEvent = new UnityEvent();
     [SerializeField] UnityEvent<float> glowEye = new UnityEvent<float>();
+    [SerializeField] UnityEvent<float> darkEye = new UnityEvent<float>();
     [SerializeField] GameObject eyeObject;
     public bool plateIsDown;
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();  
+    }
+    private void Update()
+    {
+      
     }
     private void OnTriggerStay(Collider other) 
     {
@@ -28,7 +33,7 @@ public class PressurePlates : MonoBehaviour
                                                         //And invoke the event for the Pressure Plate Manager
         animator.SetBool("Something on plate", true);    
         plateIsDown = true;
-        glowEye.Invoke(5);
+        glowEye.Invoke(3);
         checkAllPlatesEvent.Invoke();  
     }
 
@@ -43,6 +48,7 @@ public class PressurePlates : MonoBehaviour
                                                            //And invoke the event for the Pressure Plate Manager
         animator.SetBool("Something on plate", false);
         plateIsDown = false;
+        darkEye.Invoke(3);
         checkAllPlatesEvent.Invoke();         
     }
 
