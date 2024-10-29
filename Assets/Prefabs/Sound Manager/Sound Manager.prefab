@@ -285,3 +285,18 @@ MonoBehaviour:
     _reverbZoneMix: 0
     _minDistance: 0
     _maxDistance: 0
+  - Name: Fire
+    AudioClip: {fileID: 8300000, guid: d23e4482db8e93644b1b608667bacfb7, type: 3}
+    Mute: 0
+    BypassEffects: 0
+    BypassListenerEffects: 0
+    PlayOnAwake: 0
+    Loop: 1
+    _priority: 0
+    _volume: 0.38
+    _pitch: 1
+    _stereoPan: 0
+    _spatialBlend: 0
+    _reverbZoneMix: 0
+    _minDistance: 0
+    _maxDistance: 0
