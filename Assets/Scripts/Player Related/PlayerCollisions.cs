@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,11 +36,34 @@ public class PlayerCollisions : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Cerberus"))
+        {
+            Debug.Log("Touch");
+            if (_fadeTransition != null)
+            {
+                StartCoroutine(OnCollisionWithEnemy(.25f));
+                return;
+            }
+            
+            Debug.LogWarning("Fade Transition was not found at start().");
+        }
+    }
+
     private IEnumerator OnCollisionWithEnemy()
     {
         _fadeTransition.FadeIn(1);
         yield return new WaitForSeconds(1);
         _fadeTransition.ReloadCurrentScene();
         _fadeTransition.FadeOut(1);
+    }
+    
+    private IEnumerator OnCollisionWithEnemy(float delay)
+    {
+        _fadeTransition.FadeIn(delay);
+        yield return new WaitForSeconds(delay);
+        _fadeTransition.ReloadCurrentScene();
+        _fadeTransition.FadeOut(delay);
     }
 }

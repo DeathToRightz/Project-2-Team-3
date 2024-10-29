@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9134635366941898691}
   m_Layer: 0
   m_Name: RuunerCerberus
-  m_TagString: Enemy
+  m_TagString: Cerberus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,12 +50,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.6896296, y: 2.1977234, z: 3.3874054}
-  m_Center: {x: -0.028134823, y: -0.43005466, z: -0.100479126}
+  m_Size: {x: 7, y: 2, z: 4}
+  m_Center: {x: 0, y: -0.43005466, z: 0}
 --- !u!54 &350788602165685158
 Rigidbody:
   m_ObjectHideFlags: 0

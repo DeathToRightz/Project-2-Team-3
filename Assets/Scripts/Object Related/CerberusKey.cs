@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
 
-public class KeyPickup : MonoBehaviour
+public class CerberusKey : MonoBehaviour
 {
     [SerializeField] private float _rotationSpeed;
     
@@ -12,11 +12,17 @@ public class KeyPickup : MonoBehaviour
     private GameObject _doorToOpen;
     [SerializeField, Tooltip("Camera to activate during animation")] 
     private GameObject _cinematicCamera;
+    [SerializeField] private Animator _cerberusAnimator;
+    
+    [Header("Runner Variables")]
+    [SerializeField] private PlayerRunnerMovement _playerRunner;
+    [SerializeField] private GameObject _runnerCamera;
+    [SerializeField] private GameObject _runnerCerberus;
+    [SerializeField] private PlayerLanesController _lanesController;
     
     private Animation _doorAnimation;
-    private PlayerMovement _player;
-    [SerializeField] private GameObject _demonBird;
-
+    private PlayerMovement _thirdPersonPlayer;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -39,15 +45,16 @@ public class KeyPickup : MonoBehaviour
                 meshRenderer.enabled = false;
             }
            
-            _player = other.GetComponent<PlayerMovement>();
-            _player.PlayerInput.Disable();
+            _thirdPersonPlayer = other.GetComponent<PlayerMovement>();
+            _thirdPersonPlayer.PlayerInput.Disable();
             StartCoroutine(StartAnimation(1));
         }
     }
 
     private IEnumerator StartAnimation(float delay)
     {
-        if (_demonBird) { _demonBird.GetComponent<DemonFOV>().enabled = false; _demonBird.GetComponent<DemonPatrolling>().enabled = false; }
+        _cerberusAnimator.Play("CerberusNoticePlayerCutsceen");
+        yield return new WaitForSeconds(2.5f);
         _cinematicCamera.SetActive(true);
         yield return new WaitForSeconds(delay);
         _doorAnimation.Play();
@@ -58,9 +65,12 @@ public class KeyPickup : MonoBehaviour
     {
        
         yield return new WaitForSeconds(delay);
+        _thirdPersonPlayer.gameObject.SetActive(false);
+        _playerRunner.gameObject.SetActive(true);
+        _lanesController.gameObject.SetActive(true);
+        _runnerCerberus.SetActive(true);
+        _runnerCamera.SetActive(true);
         _cinematicCamera.SetActive(false);
-        _player.PlayerInput.Enable();
-        if (_demonBird) { _demonBird.GetComponent<DemonFOV>().enabled = true; _demonBird.GetComponent<DemonPatrolling>().enabled = true; }
         Destroy(gameObject);
     }
 }
