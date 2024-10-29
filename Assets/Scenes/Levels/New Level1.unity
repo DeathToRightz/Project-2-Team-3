@@ -723,6 +723,8 @@ MonoBehaviour:
   numberOfBirds:
   - {fileID: 678127660}
   - {fileID: 1092138357}
+  - {fileID: 1162413431}
+  windAreas: []
 --- !u!1 &161491313
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,7 +780,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyeCameraView: {fileID: 1247367252}
-  numberOfBirds: []
+  numberOfBirds:
+  - {fileID: 678127660}
+  - {fileID: 1092138357}
+  - {fileID: 1162413431}
+  windAreas: []
 --- !u!1001 &186899639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2130,7 +2136,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eyeCameraView: {fileID: 1247367252}
-  numberOfBirds: []
+  numberOfBirds:
+  - {fileID: 678127660}
+  - {fileID: 1092138357}
+  - {fileID: 1162413431}
+  windAreas: []
 --- !u!4 &399979669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7157475096642680970, guid: 72d3e2757ac00da4e919fcfbc7489050, type: 3}
@@ -6427,6 +6437,8 @@ MonoBehaviour:
   numberOfBirds:
   - {fileID: 678127660}
   - {fileID: 1092138357}
+  - {fileID: 1162413431}
+  windAreas: []
 --- !u!1001 &1072841725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8598,6 +8610,8 @@ MonoBehaviour:
   numberOfBirds:
   - {fileID: 678127660}
   - {fileID: 1092138357}
+  - {fileID: 1162413431}
+  windAreas: []
 --- !u!1 &1365330354
 GameObject:
   m_ObjectHideFlags: 0

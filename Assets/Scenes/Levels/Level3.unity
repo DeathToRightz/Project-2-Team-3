@@ -4252,6 +4252,9 @@ MonoBehaviour:
   - {fileID: 2135511930}
   - {fileID: 1712927265}
   - {fileID: 1162273574}
+  windAreas:
+  - {fileID: 947979833}
+  - {fileID: 736219308}
 --- !u!1 &293105341 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2807650744393645004, guid: c386907b3e351e146a4a60bf9af87e9f, type: 3}
@@ -4862,6 +4865,9 @@ MonoBehaviour:
   - {fileID: 2135511930}
   - {fileID: 1712927265}
   - {fileID: 1162273574}
+  windAreas:
+  - {fileID: 947979833}
+  - {fileID: 736219308}
 --- !u!1 &339252208
 GameObject:
   m_ObjectHideFlags: 0
@@ -9703,6 +9709,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbb1c1abd64e8394fa226a4465a66a63, type: 3}
+--- !u!1 &736219308 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1571071628539881633, guid: 9ce1b16520160de4493c5db9a0acfc0b, type: 3}
+  m_PrefabInstance: {fileID: 1259065069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &745698282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10178,6 +10189,9 @@ MonoBehaviour:
   - {fileID: 2135511930}
   - {fileID: 1712927265}
   - {fileID: 1162273574}
+  windAreas:
+  - {fileID: 947979833}
+  - {fileID: 736219308}
 --- !u!1001 &812551528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11966,6 +11980,11 @@ MonoBehaviour:
   m_Center: {x: 0, y: 1, z: 0}
   m_Area: 1
   m_AffectedAgents: ffffffff
+--- !u!1 &947979833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1571071628539881633, guid: 9ce1b16520160de4493c5db9a0acfc0b, type: 3}
+  m_PrefabInstance: {fileID: 1973188170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &956834914 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2807650744393645004, guid: c386907b3e351e146a4a60bf9af87e9f, type: 3}
@@ -26257,6 +26276,9 @@ MonoBehaviour:
   - {fileID: 2135511930}
   - {fileID: 1712927265}
   - {fileID: 1162273574}
+  windAreas:
+  - {fileID: 947979833}
+  - {fileID: 736219308}
 --- !u!1001 &2100943274
 PrefabInstance:
   m_ObjectHideFlags: 0

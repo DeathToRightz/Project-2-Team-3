@@ -11,10 +11,13 @@ public class GlowingEye : MonoBehaviour
     public GameObject eyeCameraView;
     private float timeToGlow,timeToDarken;
     private bool darken;
-    [SerializeField] List<GameObject> numberOfBirds = new List<GameObject>();   
+    [SerializeField] List<GameObject> numberOfBirds = new List<GameObject>();
+    [SerializeField] List<GameObject> windAreas = new List<GameObject>();
+    private PlayerMovement _playerRef;
     private void Awake()
     {
         _objectRenderer = GetComponent<Renderer>();
+        _playerRef = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
        
     }
     private void Update()
@@ -69,24 +72,56 @@ public class GlowingEye : MonoBehaviour
 
     IEnumerator ChangeCameraView(float delay)
     {
-        for(int i = 0; i <= numberOfBirds.Count-1; i++)
-        {
-            numberOfBirds[i].GetComponent<DemonFOV>().enabled = false;
-            numberOfBirds[i].GetComponent<DemonPatrolling>().enabled = false;
-        }
+        
+        _playerRef.PlayerInput.Disable();
+        ToggleBirdsAndWind(numberOfBirds, windAreas, false);
         eyeCameraView.SetActive(true);
          yield return new WaitForSeconds(delay);
-        eyeCameraView.SetActive(false);
-        for (int i = 0; i <= numberOfBirds.Count - 1; i++)
-        {
-            numberOfBirds[i].GetComponent<DemonFOV>().enabled = true;
-            numberOfBirds[i].GetComponent<DemonPatrolling>().enabled = true;
-        }
-
+        ToggleBirdsAndWind(numberOfBirds, windAreas, true);
+        eyeCameraView.SetActive(false);        
+        _playerRef.PlayerInput.Enable();
     }
    
     public void ChangeColorBackEvent()
     {
         darken = true;
+    }
+
+
+
+    private void ToggleBirdsAndWind(List<GameObject> birds, List<GameObject> windAreas, bool turnOn)
+    {
+        if (!turnOn)
+        {
+            for (int i = 0; i <= birds.Count - 1; i++)
+            {
+                birds[i].GetComponent<DemonFOV>().enabled = false;
+                birds[i].GetComponent<DemonPatrolling>().enabled = false;
+            }
+            if(windAreas != null)
+            {
+                for (int i = 0; i <= windAreas.Count - 1; i++)
+                {
+                    windAreas[i].GetComponent<WindArea>().enabled = false;
+                }
+            }
+
+        }
+        else
+        {
+            for (int i = 0; i <= birds.Count - 1; i++)
+            {
+                birds[i].GetComponent<DemonFOV>().enabled = true;
+                birds[i].GetComponent<DemonPatrolling>().enabled = true;
+            }
+            if (windAreas != null)
+            {
+                for (int i = 0; i <= windAreas.Count - 1; i++)
+                {
+                    windAreas[i].GetComponent<WindArea>().enabled = true;
+                }
+            }
+        }
+        
     }
 }
