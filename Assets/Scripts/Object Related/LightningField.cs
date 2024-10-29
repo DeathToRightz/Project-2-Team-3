@@ -17,8 +17,6 @@ public class LightningField : MonoBehaviour
     }
     void Start  ()
     {
-        Debug.Log(transform.position.x);
-        Debug.Log(transform.localScale.x);
         StartCoroutine(LightningFieldFunc(lightningVFX));       
     }
 
@@ -28,7 +26,7 @@ public class LightningField : MonoBehaviour
         {
             Instantiate(objVFX,new Vector3(Random.Range(transform.position.x,_meshSizeX),transform.position.y,Random.Range(-_meshSizeZ,_meshSizeZ + 1)),Quaternion.identity);
            // Instantiate(objVFX,new Vector3(Random.Range(-_meshSizeX,_meshSizeX + 1), Random.Range(-_meshSizeY, _meshSizeY + 1), Random.Range(-_meshSizeZ, _meshSizeZ + 1)),Quaternion.identity);
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(1f);
         }
     }
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7340750561925290650}
+  - component: {fileID: 8520199825332548682}
   m_Layer: 0
   m_Name: Lightning strike
   m_TagString: Untagged
@@ -32,6 +33,18 @@ Transform:
   - {fileID: 9215894426603319499}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8520199825332548682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790745870525222713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b2921939c6f5f49a32c88e63058542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8948307242563560509
 GameObject:
   m_ObjectHideFlags: 0

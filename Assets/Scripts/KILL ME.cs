@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class KILLME : MonoBehaviour
 {
+    private void Start()
+    {
+        KillGameObject();
+    }
     public void KillGameObject()
     {
-        Destroy(transform.parent.gameObject);
+        Destroy(gameObject,3);
     }
 }
