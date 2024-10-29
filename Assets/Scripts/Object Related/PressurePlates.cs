@@ -26,25 +26,25 @@ public class PressurePlates : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Pushable" && plateIsDown == true || alreadyOn) //While the object is not tagged with pushable and the plate is already down   
+        if ((other.tag != "Pushable" && plateIsDown == true || alreadyOn) || other.tag == "Player") //While the object is not tagged with pushable and the plate is already down   
                                                             // don't continue 
         {
 
             return;
         }
-        alreadyOn = true;
+       
         ChangeCameraView.Invoke();
     }
     private void OnTriggerStay(Collider other) 
     {
-        if (other.tag != "Pushable" && plateIsDown == true) //While the object is not tagged with pushable and the plate is already down   
-                                                           // don't continue 
+        if ((other.tag != "Pushable" && plateIsDown == true) || other.tag == "Player") //While the object is not tagged with pushable and the plate is already down   
         {
                       
             return;
         }
-                                                         //If everything above is true then start animation down, set plateIsDown to true
-                                                        //And invoke the event for the Pressure Plate Manager
+        alreadyOn = true;
+        //If everything above is true then start animation down, set plateIsDown to true
+        //And invoke the event for the Pressure Plate Manager
         animator.SetBool("Something on plate", true);    
         plateIsDown = true;
        
@@ -54,7 +54,7 @@ public class PressurePlates : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag != "Pushable" && plateIsDown == false) //While the object is not tagged with pushable and the plate is not down
+        if ((other.tag != "Pushable" && plateIsDown == false) || other.tag == "Player") //While the object is not tagged with pushable and the plate is not down
                                                             //don't continue
         {
             return;  
